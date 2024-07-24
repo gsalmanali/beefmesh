@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/blockchain/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Blockchain Network - BeefMesh 1.0</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Blockchain Network";
+        var mkdocs_page_input_path = "blockchain.md";
+        var mkdocs_page_url = "/blockchain/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> BeefMesh 1.0
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sessions/">Sessions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emissions/">Emissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utsa/">UTSA Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../databases/">Databases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipfs/">IPFS Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../iots/">IoT Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overlay/">Overlay Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../shareddrive/">Network Shared Drive</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Blockchain Network</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#a-note-on-environment-variables">A Note on Environment Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#singlehost-setup">SingleHost Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#managing-a-new-organization">Managing a new organization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#managing-new-peers">Managing new peers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#managing-new-orderer">Managing new orderer</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#custom-multihost-setup">Custom MultiHost Setup</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-organization">Custom Organization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-peer">Custom Peer</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-orderer">Custom Orderer</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#manage-blockchain-channels">Manage Blockchain Channels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploy-chaincode-to-channel">Deploy Chaincode to Channel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#deploy-chaincode-to-channel_1">Deploy Chaincode to Channel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#writing-and-reading-data-from-chaincode">Writing and Reading Data from Chaincode</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#check-block-details">Check Block Details</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utilities/">Utilities and Monitoring</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples and Applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging Issues</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">BeefMesh 1.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Blockchain Network</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="blockchain-network">Blockchain Network</h1>
+<p>The submodule files located under /blockchain directory are meant to start a hybrid permissioned blockchain network that can be extended to form different groups for collaboration. The blockchain framework apart from running containers, requires hyperledger fabric version 2.5 related binary files located under BeefMesh/fabric-samples/bin folder. Downloading the hyperledger fabric within the BeefMesh folder will create the fabric-samples/bin automatically. To download the fabric 2.5 binary files within the BeefMesh folder, call the blockchain-net.sh file in /blockchain folder. </p>
+<pre><code>    # Note that this only downloads binary files and container images!
+./blockchain/blockchain-net.sh downloadfabric
+</code></pre>
+<p>This will download required docker images and binary files in a /bin folder inside BeefMesh/blockchain directory. 
+The rest of the tutorial is divided into two sections. One for testing locally on a single host and one for testing on a multi host setup. </p>
+<h2 id="a-note-on-environment-variables">A Note on Environment Variables</h2>
+<p>Environmnet variables are automatically picked up from configuration files and stored under blockchain/blockchainEnvVar for different organizations, peers and orderers. The format of the folders inside blockchain/blockchainEnvVar is of the form organizationX_Y, where X is the organziation number and Y is the peer number. This allows storing multiple organziations of the same type, e.g. first breeder org with one peer node can be stored as breeder0_0 and when another peer gets added, it can be stored as breeder0_1. Or or separate new breeder organizations can be added as breeder1_0,  breeder2_0, ... and so on. </p>
+<p>Next, blockchain/OrgConfigurations folder allows storing network configuration files so that different set of organzations can be configured for a particualr channel using a particular orderer. Use the chaincode_path.sh, channel_path.sh and configtx_path.sh files to target different organization configurations. For example, if all the settings are set for 'main' configuration, then different files inside blockchain/OrgConfigurations/main folder can be used to  spin up different set of blockchain confgurations when creating channels, installing chaincode etc. </p>
+<h2 id="singlehost-setup">SingleHost Setup</h2>
+<p>Once the binary are downloaded in the BeefMesh/blockchain/bin folder, start the minimim setup of manager and regulator for the main server.</p>
+<pre><code>./blockchain/blockchain-net.sh blockchainup tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh blockchainup &lt;starting_channel_name&gt;
+</code></pre>
+<p>The initial blockchain framework uses network configuration files in blockchain/configtx folder to start up a blockchain network of manager and regulator that are connected with a channel (tracechannel) and to a docker bridge named 'beef_supply'. Here is the basic overview of the sequence of files/functions called. </p>
+<ol>
+<li>call the network.sh file in BeefMesh folder </li>
+<li>pick up configuration files in BeefMesh/blockchain/configtx folder </li>
+<li>pick up binary files in BeefMesh/blockchain/bin folder </li>
+<li>start certificate authority (CA) containers for manager and  regulator with a single orderer using docker compose files in blockchain/compose/docker/ folder</li>
+<li>call the enrollment functions for manager, regulator and orderer in organizations/fabric-ca/registerEnroll.sh that creates certificates and stores them for each organziation under BeefMesh/organizations/peerOrganizations/ and BeefMesh/organizations/ordererOrganizations/</li>
+<li>start the database and base containers for orderer and peer using the docker compose files in blockchain/compose/docker/ folder</li>
+<li>call the blockchain/scripts/createChannel.sh to start the initial channel which creates the genesis block (tracechannel.block) in blockchain/channel-artifacts folder along with setting ports for anchor peers. </li>
+</ol>
+<p>This setup can be brought down any time </p>
+<pre><code>./blockchain/blockchain-net.sh blockchaindown tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh blockchaindown &lt;starting_channel_name&gt;
+</code></pre>
+<p>The blockchain network comprising of manager and regulator consits of a peer node in each organization and an orderer node. The orderer node is required to arrange the blockchain files after consensus when they are stored. Each organization can have their on multiple orderers and peers. The tutorial below describes how to add a new custom organization (rancher), a new peer (for regulator) and a new orderer (for racher) along with generic organization, peer and orderer with user configured settings. </p>
+<h3 id="managing-a-new-organization">Managing a new organization</h3>
+<p>Expand the network and add a new organization (rancher) to the network. Call the addRancher.sh file  in the BeefMesh/addrancher/ folder </p>
+<pre><code>./blockchain/blockchain-net.sh addrancher tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh addrancher &lt;starting_channel_name&gt;
+</code></pre>
+<p>This adds a new organization to the already running network of blockchain and joins it to the channel tracechannel. </p>
+<p><code>Note an error of the type "Error: proposal failed (err: bad proposal response 500: cannot create ledger from genesis block: ledger [&lt;channel_name&gt;] already exists with state [ACTIVE])" means that volumes from previous configurations are still being reported by the system. This can be fixed by removing the organizations and unused docker volumes completely.</code>
+`</p>
+<p>To remove the organization from the network and from the channel, run </p>
+<pre><code>./blockchain/blockchain-net.sh removerancher tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh removerancher &lt;starting_channel_name&gt;
+</code></pre>
+<p>This removes the organziation completely from the network and from the channel while reconfiguring the network. </p>
+<h3 id="managing-new-peers">Managing new peers</h3>
+<p>Add a new peer for the regulator organization </p>
+<pre><code>./blockchain/blockchain-net.sh addregulatorpeer tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh addregulatorpeer &lt;starting_channel_name&gt;
+</code></pre>
+<p>Remove the extra peer from regulator organization </p>
+<pre><code>./blockchain/blockchain-net.sh removeregulatorpeer tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh removeregulatorpeer &lt;starting_channel_name&gt;
+</code></pre>
+<p>Since manager and regulator setup is assumed to be running on the same host along with an orderer node, the new organization running on some other host (multi-host scenario) might not be able to directly access the single running orderer. Start a new orderer for the rancher organization </p>
+<h3 id="managing-new-orderer">Managing new orderer</h3>
+<p>Add a new orderer for the regulator and manager organization </p>
+<pre><code>./blockchain/blockchain-net.sh addrancherorderer tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh addrancherorderer &lt;starting_channel_name&gt;
+</code></pre>
+<p>Remove the extra orderer just added above for the rancher organization </p>
+<pre><code>./blockchain/blockchain-net.sh removerancherorderer tracechannel
+# generic call (replace the starting channel name variable)
+./blockchain/blockchain-net.sh removerancherorderer &lt;starting_channel_name&gt;
+</code></pre>
+<h2 id="custom-multihost-setup">Custom MultiHost Setup</h2>
+<p><code>Note: A list of ports and addresses used by blockchain containers is maintained under blockchain/blockchain_ports_master.txt and would be helpful to maintain when running all containers locally or in multihost setup! When adding more organziations, just increase port number and make sure it is not used with any other container</code></p>
+<p>The scripts under this section can be run in single host and multi-host environment and are meant to be flexible enough to allow adpating quickly for new organizations, peers and orderers. Before using for multihost setup, make sure all networks are using 'overlay' option instead of 'bridge' in the docker-compose files.  </p>
+<p>A difference between running scripts locally and multihost setup is summarized below. </p>
+<ol>
+<li>For multihost setup, configure the PeerOrgEnv.sh environment files with the ip address of the peer node instead of using localhost. Ports can remain the same.</li>
+<li>In a multihost setup, each organziation should setup their own orderer since it is not advisable to share configurations with other nodes running orderer to update changes to common channel. Initially, the orderers are added by sharing configurations in a group that other organziations can use to make udpates to channel. Once the changes are made, each organziation can continue with their own orderer to make more channels and make changes to it. </li>
+<li>Due to limitation of space, combined scripts are provided that can be split into more than one script that requires utilizing an orderer owned by other organization. This requires sharing files using collaboration server to allow required changes to server. </li>
+<li>The main changes that are required to use other organizations orderers are when a channel genesis file is required or when the organziaton is not on the channel but wants to join.  </li>
+</ol>
+<h3 id="custom-organization">Custom Organization</h3>
+<p>To bring up a custom organization to an already existing network started by manager and regulator, use the addCustom.sh file in /addustomorg folder. First change the environment variables (non-conflicting org name, ports, addresses in the addcustomorg/env/env.sh file. Then export the variables in the terminal </p>
+<pre><code>source addcustomorg/env/env.sh
+</code></pre>
+<p><code>Note that folder name can be changed when resuing the template. Also change the folder name path variable in the env/env.sh file</code>  </p>
+<p>Call the the setparamcustomorg method to set configuration for the new organization</p>
+<pre><code>./blockchain/blockchain-net.sh setparamcustomorg
+</code></pre>
+<p>Now, bring up or bring down the new organization </p>
+<pre><code># bring organziation up
+./blockchain/blockchain-net.sh addcustomorg tracechannel
+# bring organziation down
+./blockchain/blockchain-net.sh removecustomorg tracechannel
+</code></pre>
+<h3 id="custom-peer">Custom Peer</h3>
+<p><code>Note that extra peer uses the same ports for certificate authority for the organization to which it is added to</code>   </p>
+<p>To bring up a custom peer to the already existing network started by manager and regulator, use the addCustom.sh file in /addustompeer folder. First change the envrionemnt variables (non-conflicting org name, ports, addresses in the addustompeer/env/env.sh file. Then export the variables in the terminal </p>
+<pre><code>source addcustompeer/env/env.sh
+</code></pre>
+<p>Call the the setparamcustompeer method to set configuration for the new peer</p>
+<pre><code>./blockchain/blockchain-net.sh setparamcustompeer
+</code></pre>
+<p>Now, bring up or bring down the new organization </p>
+<pre><code># bring organziation up
+./blockchain/blockchain-net.sh addcustompeer tracechannel
+# bring organziation down
+./blockchain/blockchain-net.sh removecustompeer tracechannel
+</code></pre>
+<h3 id="custom-orderer">Custom Orderer</h3>
+<p>To bring up a custom orderer to the already existing network started by manager and regulator, use the addCustom.sh file in /addustomorderer folder. First change the envrionemnt variables (non-conflicting org name, ports, addresses in the addustomorderer/env/env.sh file. Then export the variables in the terminal </p>
+<pre><code>source addcustomorderer/env/env.sh
+</code></pre>
+<p>Call the the setparamcustompeer method to set configuration for the new peer</p>
+<pre><code>./blockchain/blockchain-net.sh setparamcustomorderer
+</code></pre>
+<p>Now, bring up or bring down the new organization </p>
+<pre><code># bring organziation up
+./blockchain/blockchain-net.sh addcustomorderer tracechannel
+# bring organziation down
+./blockchain/blockchain-net.sh removecustomorderer tracechannel
+</code></pre>
+<h2 id="manage-blockchain-channels">Manage Blockchain Channels</h2>
+<p>To create new channels for use after an organzation has been setup, use the porvided scripts as follows </p>
+<pre><code>    ./blockchain/blockchain-net.sh createchannel &lt;channel_name&gt;
+./blockchain/blockchain-net.sh createchannel cedric
+</code></pre>
+<p>Note that, before calling the script to use, make changes to environment variables under blockchain/OrgConfigurations and particularly  createChannelOrgsCustom.txt file with first line being the channel configuration to be picked up from configtx file, the second line being the orderer to use, the third being the main organization which will start the process and fourth line being the list of organizations that will be part of the channel. </p>
+<h2 id="deploy-chaincode-to-channel">Deploy Chaincode to Channel</h2>
+<p>Once channels have been created, smart contracts need to be installed on the channels to use them. Same version of the program should be pakcaged and installed on all peers using the same channel to be able to make changes to the same data when they have the rights to do so. A sample Beef Chain specific program is provided under 
+examples/emissionschaincode written in GO language. To install the program, use the custom scripts provided</p>
+<p><code>Note that while environment variables are automatically set for rest of the application, a record needs to be manually made before installing chaincode for the peer connection paramameters in the file blockchain/scripts/envVar.sh and in the function  parsePeerConnectionParameters()</code></p>
+<pre><code>    ./blockchain/blockchain-net.sh installcontract &lt;channel_name&gt; &lt;program_name&gt; &lt;program_location&gt; &lt;program_language&gt; &lt;collaboration_orgs&gt;
+
+    ./blockchain/blockchain-net.sh installcontract tracechannel traceexample ./examples/emissionschaincode/ go "OR('ManagerMSP.peer','RegulatorMSP.peer')"
+</code></pre>
+<p>Not that this again makes use of target envrionment files in blockchain/OrgConfigurations and particularly installChaincodeOrgsCustom.txt file. The smartcontract can be reused by copying the program under different folder and installing with different program name. </p>
+<h2 id="deploy-chaincode-to-channel_1">Deploy Chaincode to Channel</h2>
+<p>Once channels have been created, smart contracts need to be installed on the channels to use them. Same version of the program should be pakcaged and installed on all peers using the same channel to be able to make changes to the same data when they have the rights to do so. A sample Beef Chain specific program is provided under 
+examples/emissionschaincode written in GO language. To install the program, use the custom scripts provided</p>
+<pre><code>    ./blockchain/blockchain-net.sh installcontract &lt;channel_name&gt; &lt;program_name&gt; &lt;program_location&gt; &lt;program_language&gt; &lt;collaboration_orgs&gt;
+
+    ./blockchain/blockchain-net.sh installcontract tracechannel traceexample ./examples/emissionschaincode/ go "OR('ManagerMSP.peer','RegulatorMSP.peer')"
+</code></pre>
+<p>Not that this again makes use of target envrionment files in blockchain/OrgConfigurations and particularly installChaincodeOrgsCustom.txt file. The smartcontract can be reused by copying the program under different folder and installing with different program name. </p>
+<h2 id="writing-and-reading-data-from-chaincode">Writing and Reading Data from Chaincode</h2>
+<p>Once program is installed, a helper function file is provided to read and write data into the channel using the installed program. To write a new animal record to the 
+program,</p>
+<pre><code>    ./blockchain/blockchain-writer.sh createanimal &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_properties_file&gt; &lt;some_info&gt;
+
+./blockchain/blockchain-writer.sh createanimal manager0_0 orderer tracechannel traceexample animal1.sh NewAnimal
+</code></pre>
+<p>Note that the record above uses an animal properties file located under examples/ folder and writes the animal_id that is generated by the blockchain under examples/animalrecords. </p>
+<p>To read back the data recorded on the blockchain, </p>
+<pre><code>./blockchain/blockchain-writer.sh readanimal &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt;
+
+./blockchain/blockchain-writer.sh readanimal manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6
+</code></pre>
+<p>Note that, we use the animal_id (example here) that was generated from the first stage of recording the animal on blockchain to target later blockchain changes. </p>
+<p>To read private data of animal from blockchain by the owner who created the data, </p>
+<pre><code>    ./blockchain/blockchain-writer.sh readprivate &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt;
+
+./blockchain/blockchain-writer.sh readprivate manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6
+</code></pre>
+<p>To make changes to the data stored on the blockchain, particularly the description of data, </p>
+<pre><code>      ./blockchain/blockchain-writer.sh changedescription &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt; &lt;description&gt;
+     ./blockchain/blockchain-writer.sh changedescription manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6 AnimalForSale
+</code></pre>
+<p>To record data from traceability channels such as the IPFS or some other general data, </p>
+<pre><code>  ./blockchain/blockchain-writer.sh recorddata &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt; &lt;data&gt; &lt;target_function&gt;
+
+ ./blockchain/blockchain-writer.sh recorddata manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6 SomeIPFScid ChangeFarmerData
+</code></pre>
+<p>Note that we used ChangeFarmerData target function above as it makes changes to the FarmerData variable. To make changes to other varaibles, some useful target functions are given below: </p>
+<ul>
+<li>ChangeFarmerData/ChangeFarmerTrace  for managing data on FarmerData/FarmerTrace </li>
+<li>ChangeBreederData/ChangeBreederTrace  for managing data on BreederData/BreederTrace </li>
+<li>ChangeDistributorData/ChangeBreederTrace  for managing data on DistributorData/DistributorTrace </li>
+<li>ChangeRetailerData/ChangeBreederTrace  for managing data on RetailerData/RetailerTrace </li>
+<li>ChangeRegulatorData/ChangeRegulatorTrace  for managing data on RegulatorData/RegulatorTrace </li>
+<li>ChangeConsumerData/ChangeConsumerTrace  for managing data on ConsumerData/ConsumerTrace </li>
+<li>ChangeProcessorData/ChangeProcessorTrace  for managing data on ProcessorData/ProcessorTrace </li>
+</ul>
+<p>To move private animal record to other organization, officially start a selling process, </p>
+<pre><code>    ./blockchain/blockchain-writer.sh agreetosell &lt;seller_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt; &lt;animal_trade_id&gt;&gt; &lt;price&gt;
+
+./blockchain/blockchain-writer.sh agreetosell manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6 109f4b3c50d7b0df729d299bc6f8e9ef9066971f 2500
+</code></pre>
+<p>Check the sale price that was just changed, </p>
+<pre><code>   ./blockchain/blockchain-writer.sh checksaleprice &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt;
+
+   ./blockchain/blockchain-writer.sh checksaleprice manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6
+</code></pre>
+<p>The other orgaznation interested in taking in the animal, puts on their bid price, </p>
+<pre><code>          ./blockchain/blockchain-writer.sh agreetobuy &lt;buyer_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt; &lt;animal_properties&gt; &lt;price&gt;
+
+    ./blockchain/blockchain-writer.sh agreetobuy regulator0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6 animal1.sh 2500
+</code></pre>
+<p>Note, that the other organization needs to knwow the properties data of the animal under negotiation   </p>
+<p>Check the bid price that was just put on the blockchain,</p>
+<pre><code>./blockchain/blockchain-writer.sh checkbidprice &lt;main_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt;
+
+./blockchain/blockchain-writer.sh checkbidprice regulator0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6
+</code></pre>
+<p>If the prices match and the seller agrees to hand over the animals, the seller can tranfer the animal to the other organization by using the other organizations credentails </p>
+<pre><code>     ./blockchain/blockchain-writer.sh transferanimal &lt;seller_org&gt; &lt;orderer_to_use&gt; &lt;channel_name&gt; &lt;program_name&gt; &lt;animal_id&gt; &lt;animal_trade_id&gt; &lt;buyer_org&gt; &lt;price_settled&gt;
+
+
+./blockchain/blockchain-writer.sh transferanimal manager0_0 orderer tracechannel traceexample c9561e1bfd916da55119de6eae55cda85ac0aa5c89ed606721cd53d25d4bddf6 109f4b3c50d7b0df729d299bc6f8e9ef9066971f regulator0_0 2500
+</code></pre>
+<h3 id="check-block-details">Check Block Details</h3>
+<p>To check the details of a particular transaction in a block, download and build the application provided here: https://github.com/Deeptiman/blockreader
+Optionally,  use the blockchain explorer application to visualize the block transactions. </p>
+<p>Remove any existing organizations from the folder fabricexplorer and copy organizations data to the fabricexplorer directory . </p>
+<pre><code>rm -d -r fabricexplorer/organizations
+    cp -R organizations fabricexplorer/
+    chmod -R a+rwx fabricexplorer
+</code></pre>
+<p>Use jq to export and replace keys in bulk for the organizations that are required to be viewed. For example, if there is just manager org, </p>
+<pre><code>key_value=$(ls organizations/peerOrganizations/manager.beefsupply.com/users/User1@manager.beefsupply.com/msp/keystore/)
+    export key_value
+</code></pre>
+<p>Spin up the fabric explorer container, </p>
+<pre><code>cd fabricexplorer &amp;&amp; docker-compose up -d
+</code></pre>
+<p>Blockchain explorer will run on interface localhost:8090 with username: exploreradmin and pass: exploreradminpw</p>
+<p>Bring down the container manually, </p>
+<pre><code>docker stop explorerdb.beefnetwork.com
+docker rm explorerdb.beefnetwork.com
+docker stop explorer.beefnetwork.com
+docker rm explorer.beefnetwork.com
+rm -d -r fabricexplorer/organizations
+fuser -k 8090/tcp
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../shareddrive/" class="btn btn-neutral float-left" title="Network Shared Drive"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../utilities/" class="btn btn-neutral float-right" title="Utilities and Monitoring">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../shareddrive/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../utilities/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

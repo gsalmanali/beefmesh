@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/iots/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>IoT Network - BeefMesh 1.0</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IoT Network";
+        var mkdocs_page_input_path = "iots.md";
+        var mkdocs_page_url = "/iots/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> BeefMesh 1.0
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sessions/">Sessions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emissions/">Emissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utsa/">UTSA Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../databases/">Databases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipfs/">IPFS Network</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">IoT Network</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#running-application">Running Application</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-databases">Run Databases</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-users">Create Users</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#signin-users">Signin Users</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-sensors">Create Sensors</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transmit-data">Transmit Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#read-data">Read Data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bringdown-containers">Bringdown Containers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-certificates">Create Certificates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multihost-unsecured">Multihost Unsecured</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-user">Create User</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signin-users_1">Signin Users</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create-sensors_1">Create Sensors</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multihost-secured">Multihost Secured</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-user_1">Create User</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#signin-users_2">Signin Users</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create-sensors_2">Create Sensors</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overlay/">Overlay Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../shareddrive/">Network Shared Drive</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../blockchain/">Blockchain Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utilities/">Utilities and Monitoring</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples and Applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging Issues</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">BeefMesh 1.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">IoT Network</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="iot-network">IoT Network</h1>
+<p>"IoT network" refers to a network infrastructure specifically designed to facilitate communication and data exchange among Internet of Things (IoT) devices. The submodule /iotnetwork directory is meant to serve as a resource for spinning up interfaces for IoTs and sensors. </p>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>IoT network can be run for individual organizations and is meant to consume data within an independent private supply chain domain which can then be shared over other channels. The same setup can therefore be run within other organizations without major changes. Before the iot network can be run, check .env parameters to see if the ports are what is required at the organziation. </p>
+<pre><code>gedit iotnetwork/docker/.env
+</code></pre>
+<p>If the .env file is empty, copy environment parameters from iotnetwork/env/env.txt into iotnetwork/docker/.env file with required modifications. The framework picks up TLS certificates from iotnetwork/docker/ssl folder during startup. To generate your own certificates, see the certificate generation section. </p>
+<p>The underlying IoT network architecture ( https://mainflux.readthedocs.io/en/latest/) incoprorates there important entities namely  User, Things and Channels. Users are individuals or entities who interact with the Mainflux platform. Things represent physical or virtual IoT devices, sensors, actuators, or any other entities that generate or consume data within the IoT ecosystem. Channels serve as communication conduits within the Mainflux platform, enabling data exchange between things and other components of the IoT system. Each entity can be mapped to other with one-to-one, one-to-many or with other multi connectivity associations.</p>
+<h3 id="running-application">Running Application</h3>
+<p>To run a standalone iotnetwork application (with a number of services) within an organizational domain, run the docker-compose file within iotnetwork/docker/ directory</p>
+<pre><code># Run from within the /iotnetwork directory 
+docker-compose -f docker/docker-compose.yml up -d
+</code></pre>
+<p>This will spin up a number of containers including databases that will be attached to 'beefchain-base-net' docker bridge network. 
+All default databases have their usernames, passwords and database names set to 'mainflux' which can be changed in the .env file before spinning containers. The most useful environment parameter to begin with is the user email 'admin@example.com' and password 'mainflux' for https://localhost/users route. By default, 'users' service starts with the ability to register any user to begin using the platform. Should only an admin be allowed to access 'users' service, change variable MF_USERS_ALLOW_SELF_REGISTER  in the .env file to false.</p>
+<h3 id="run-databases">Run Databases</h3>
+<p>We also need to spin up databases to store data captured from IoTs and sensors. There are a number of options available for that purpose under iotnetwork/docker/addons folder. As an example, spin up mongodb databases. For starting any addon service .env parameters file should be copied to that folder. Call the iotnetwork/iot-network.sh script to copy .env files where required. From within iotnetwork directory use any of the the commands below in bash terminal,   </p>
+<pre><code># to copy .env files to iotnetwork/docker/addons/mongodb-writer and */mongodb-reader
+./iot-network.sh copyenv mongodb
+
+# to copy .env file to all foders in iotnetwork/docker/addons/*
+./iot-network.sh copyenv all
+
+# to copy .env file to individual folders 
+./iot-network.sh copyenv mongodb
+./iot-network.sh copyenv postgres
+./iot-network.sh copyenv influxdb
+./iot-network.sh copyenv timescale
+./iot-network.sh copyenv twins
+./iot-network.sh copyenv notifier
+./iot-network.sh copyenv adapter
+./iot-network.sh copyenv cassandra
+</code></pre>
+<p>Once, .env files have been successfully copied to <em>/mongodb-writer and </em>/mongodb-reader in iotnetwork/docker/addons/ folder, spin up the containers (assuming user is in the main BeefChain directory) </p>
+<p><code>Note that any of the addon services require main services to be up and running as it looks for external 'beefchain-base-net network to connect to. We already started it using iotnetwork/docker/docker-compose.yml file!</code></p>
+<pre><code>docker-compose -f docker/addons/mongodb-writer/docker-compose.yml -f docker/addons/mongodb-reader/docker-compose.yml up -d
+</code></pre>
+<h3 id="create-users">Create Users</h3>
+<p>Once the cotnainers are up and running successfully, we can start creating users, things and channels. Note that all these there entities get assigned KEYS and IDs over the iot framework for accessing them. These are stored as environment variables in iotnetwork/env directory under /users, /things and /channels folder. </p>
+<p>Creat a new user with email  'farmer@beefchain.com' and password '12345678' by calling the ./iot-network.sh script in iotnetwork/ folder</p>
+<pre><code>user_email='farmer@beefchain.com'
+user_pass='12345678'
+
+# using bash variables
+./iot-network.sh newuser $user_email $user_pass
+# using direct parameters
+./iot-network.sh newuser farmer@beefchain.com 12345678
+</code></pre>
+<p>A user will be created if it doesn't exist and its ID will be stored with varaible name 'user_id' in iotnetwork/env/users/$user_email.sh. At any time it can be viewed in the bash terminal by </p>
+<pre><code>./iot-network.sh getid farmer@beefchain.com
+# or directly source to bash terminal in variable user_id
+source env/users/$user_email.sh
+</code></pre>
+<h3 id="signin-users">Signin Users</h3>
+<p>Once user has been registered, sign in the paltform to get session tokens (JWT Tokens) that can be used to create things and channels.
+Call the provided script with email and password to sign in. </p>
+<pre><code>./iot-network.sh signin farmer@beefchain.com 12345678
+</code></pre>
+<p>A user file will be created if it doesn't exist and its assigned token will be stored with varaible name 'user_token' in iotnetwork/env/tokens/$user_email.sh. At any time it can be viewed in the bash terminal by </p>
+<pre><code>./iot-network.sh gettoken farmer@beefchain.com
+# or directly source to bash terminal in variable user_token
+source env/tokens/$user_email.sh
+</code></pre>
+<p>Tokens can get expired after sometime. To get new tokens, simply signin again or use the existing tokens to check if they are still valid.</p>
+<pre><code>./iot-network.sh checktoken farmer@beefchain.com 12345678
+</code></pre>
+<p>This will pick up session tokens against the provided user credential and check and return its validity. </p>
+<p>To see all users registered in the paltform at any time, call allusers method using admin username and password</p>
+<pre><code>./iot-network.sh allusers admin@example.com 12345678
+</code></pre>
+<h3 id="create-sensors">Create Sensors</h3>
+<p>A registered user can create Things (sensor devices) on the platform which can be a direct interace for hardware devices to dump data. To create a sensor device using a registerd user, call the createsensor method with a username, password and sensor name</p>
+<pre><code>./iot-network.sh createsensor farmer@beefchain.com 12345678 energysensor
+</code></pre>
+<p>This will register a sensor device interface with  a name 'energysensor', generate a key and an id for the device. The key is stored in iotnetwork/env/keys folder with the sensor name and with variable name sensor_key. The sensor id is stored in the iotnetwork/env/things  folder in a file named after the sensor name in a variable sensor_id along with the user_id that created it. To source directly the variable to bash</p>
+<pre><code># Assuming the sensor name is 'energysensor'
+source iotnetwork/env/things/energysensor.sh
+source iotnetwork/env/keys/energysensor.sh
+echo $sensor_id 
+echo $sensor_key
+</code></pre>
+<p>A registed user can list all the sensor devices they have on platform any time, call the getthings function with username and password </p>
+<pre><code>./iot-network.sh getthings farmer@beefchain.com 12345678
+</code></pre>
+<p>Once sensor devices as 'things' have been registered on the platform, communication channels need to be created to allow data to be transmitted from devices over the channels and stored in relevant databases. To create channels, call the createchannel function with a registerd user email, password and channel name </p>
+<pre><code>./iot-network.sh createchannel farmer@beefchain.com 12345678 energysensorchannel
+</code></pre>
+<p>This will register a channel interface with  a name 'energysensorchannel', and generate an id for the channel. The id is stored in iotnetwork/env/channels folder with the channel name and with variable name channel_id along with the user_id that created it. To source directly the variables to bash</p>
+<pre><code># Assuming the sensor name is 'energysensorchannel'
+source iotnetwork/env/things/energysensorchannel.sh
+echo $channel_id
+</code></pre>
+<p>A registed user can list all the channel interfaces they have on platform any time, call the getchannels function with username and password </p>
+<pre><code>./iot-network.sh getchannels farmer@beefchain.com 12345678
+</code></pre>
+<p>Once, sensor devices (things) and channels have been registered on the platform by an authorized user, sensors need to be connected to channels to allow sending data over it. To connect a particular sensor to a particular channel, call the connect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>Sensors can also be disconnected from channels. To disconnect a particular sensor from a particular channel, call the disconnect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network.sh disconnect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<h3 id="transmit-data">Transmit Data</h3>
+<p>Start sending data over a channel using a sensor. Connect the sensor and channel again,     </p>
+<pre><code>./iot-network.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>Since we had already started the mongodb reader and writer containers earlier, we will use the mongodb database to dump sensor data and retrieve it. Check mongodb containers are running</p>
+<pre><code>docker ps | grep mainflux-mongodb-reader
+docker ps | grep mainflux-mongodb-writer
+</code></pre>
+<p><code>Note: Containers for other databases in the iotnetwork/addons can be started in a similar way by first copying .env variables and then calling docker-compose files!</code></p>
+<p>To send example data from a sensor to a connected channel, call the csv_to_payload function </p>
+<pre><code>./iot-network.sh csv_to_payload farmer@beefchain.com 12345678 energysensor energysensorchannel energy
+# generic call parameters (replace with actual parameters)
+./iot-network.sh csv_to_payload &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;file_name&gt;
+</code></pre>
+<p>The above curl call picks up sensor key and channel id along with exporting row parameters from the energy.csv file located in iotenetwork/data/energy.csv. Number of curl calls generated will depend on the data rows in the csv file. In general a curl call to dump data can be configured as</p>
+<pre><code># grab sensor key for sensor name 'energysensor' in the variable $sensor_key
+source env/keys/energysensor.sh
+# grab channel_id for channel name 'energysensorchannel' in the variable $channel_id 
+source env/channels/energysensorchannel.sh
+# make a curl call to put random energy data in mongodb database
+curl -s -S -i --cacert docker/ssl/certs/ca.crt -X POST -H "Content-Type: application/json" -H "Authorization: Thing $sensor_key" http://localhost/http/channels/$channel_id/messages -d '[{"bn":"urn:dev:DEVEUI:energysensor:", "bt": 1.58565075E9},{"n": "electricity", "v": 35, "u": "kWh"},{"n": "diesel", "v": 50, "u": "lb"}]'
+</code></pre>
+<h3 id="read-data">Read Data</h3>
+<p>To read back data from database, call the getdata function specifying the type of database (e.g. mongodb) with user credentials (email, pass), sensor name, channel name alonmg with offset and limit of data to view </p>
+<pre><code>./iot-network.sh getdata mongodb farmer@beefchain.com 12345678 energysensor energysensorchannel 0 20
+# generic call parameters (replace with actual parameters)
+./iot-network.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;channel_name&gt; &lt;data_offset&gt; &lt;data_limit&gt;
+</code></pre>
+<p>A registered user can also dump data in a file on host machine by calling the dumpdata function  </p>
+<pre><code> ./iot-network.sh dumpdata mongodb farmer@beefchain.com 12345678 farmer_data_dump
+ # generic call parameters (replace with actual parameters)
+./iot-network.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;output_file_name&gt;
+</code></pre>
+<h3 id="bringdown-containers">Bringdown Containers</h3>
+<p>To bring down containers, call the cleanall function</p>
+<p><code>Note that cleanall deletes stored data and removes containers completeley!</code></p>
+<pre><code>./iot-network.sh cleanall
+</code></pre>
+<h3 id="create-certificates">Create Certificates</h3>
+<p>To allow communicating with IoT network using secure Mutual TLS authentication, generate certificates of your own. From  within iotnetwork/docker/ssl directory run </p>
+<pre><code># Generate certificate authority certificates
+make ca CN=localhost O=Beefchain OU=beefchain emailAddress=info@beefchain.com
+
+# Generate iotnetwork server certificates 
+make server_cert CN=localhost O=Beefchain OU=beefchain emailAddress=info@beefchain.com
+
+# (Extra) Generate things certificate (Note that the THING_KEY varaible should be the actual key described earlier)
+make thing_cert THING_KEY=8f65ed04-0770-4ce4-a291-6d1bf2000f4d CRT_FILE_NAME=thing O=Beefchain OU=beefchain emailAddress=info@beefchain.com
+</code></pre>
+<p>This should generate certificates in the iotnetwork/docker/ssl folder used by containers later. </p>
+<p>To use a user interface based system along with generating digital twins, spin up the docker-compose files in the iotnetwork/ui folder in a similar way after copying over the certificate files from iotnetwork/docker/ssl folder into the iotnetwork/ui/docker/ssl folder or generating new ones. Also copy the .env files before starting containers and make changes where required. Once the ui based containerized application is started, the iot ui can be accessed at http://localhost:3000/explorer/ with the default username admin@example.com and default password 12345678. The grafana setup for iot sensor data visualization can be accessed at http://localhost:3001 with a default username 'admin' and default password 'admin'. The username and password for grafana can be changed in the grafana-defaults.ini in configs folder or a new username and password can be created at the interface after the application runs. </p>
+<p><code>Remove configureadmin method from file ./iot-network-unsecure.sh if client using the file is generic user</code></p>
+<h3 id="multihost-unsecured">Multihost Unsecured</h3>
+<p>To call the main server from other hosts without using certificates, first configure and import the url address of the deployed server in the variable 'iot_server_address' </p>
+<pre><code>source environment/service_ip_addresses.sh
+</code></pre>
+<p>Use the script ./iot-network-unsecure.sh to make calls to the main server from a host that can reach the server over ip </p>
+<h4 id="create-user">Create User</h4>
+<pre><code>   user_email='farmer@beefchain.com'
+   user_pass='12345678'
+
+# using bash variables
+./iot-network-unsecure.sh newuser $user_email $user_pass
+# using direct parameters
+./iot-network-unsecure.sh newuser farmer@beefchain.com 12345678
+</code></pre>
+<p>The id of created user can  be viewed in the bash terminal by </p>
+<pre><code>./iot-network-unsecure.sh getid farmer@beefchain.com
+# or directly source to bash terminal in variable user_id
+source env/users/$user_email.sh
+</code></pre>
+<h4 id="signin-users_1">Signin Users</h4>
+<p>Once user has been registered, sign in the platform to get session tokens (JWT Tokens) that can be used to create things and channels. </p>
+<pre><code>./iot-network-unsecure.sh signin farmer@beefchain.com 12345678
+</code></pre>
+<p>At any time user tokens can be viewed in the bash terminal by </p>
+<pre><code>./iot-network-unsecure.sh gettoken farmer@beefchain.com
+# or directly source to bash terminal in variable user_token
+source env/tokens/$user_email.sh
+</code></pre>
+<p>To get new tokens, simply signin again or use the existing tokens to check if they are still valid.</p>
+<pre><code>./iot-network-unsecure.sh checktoken farmer@beefchain.com 12345678
+</code></pre>
+<p>To see all users registered in the paltform at any time, call allusers method using admin username and password</p>
+<pre><code>./iot-network-unsecure.sh allusers admin@example.com 12345678
+</code></pre>
+<h4 id="create-sensors_1">Create Sensors</h4>
+<p>To create a sensor device using a registerd user, call the createsensor method with a username, password and sensor name</p>
+<pre><code>./iot-network-unsecure.sh createsensor farmer@beefchain.com 12345678 energysensor
+</code></pre>
+<p>To source directly the sensor related id and key variables to bash</p>
+<pre><code># Assuming the sensor name is 'energysensor'
+source iotnetwork/env/things/energysensor.sh
+source iotnetwork/env/keys/energysensor.sh
+echo $sensor_id 
+echo $sensor_key
+</code></pre>
+<p>A registed user can list all the sensor devices they have on platform any time, call the getthings function with username and password </p>
+<pre><code>./iot-network-unsecure.sh getthings farmer@beefchain.com 12345678
+</code></pre>
+<p>To create channels, call the createchannel function with a registerd user email, password and channel name </p>
+<pre><code>./iot-network-unsecure.sh createchannel farmer@beefchain.com 12345678 energysensorchannel
+</code></pre>
+<p>To source directly the channel id variable to bash</p>
+<pre><code># Assuming the sensor name is 'energysensorchannel'
+source iotnetwork/env/things/energysensorchannel.sh
+echo $channel_id
+</code></pre>
+<p>A registed user can list all the channel interfaces they have on platform any time, call the getchannels function with username and password </p>
+<pre><code>./iot-network-unsecure.sh getchannels farmer@beefchain.com 12345678
+</code></pre>
+<p>To connect a particular sensor to a particular channel, call the connect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network-unsecure.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>To disconnect a particular sensor from a particular channel, call the disconnect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network-unsecure.sh disconnect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>Start sending data over a channel using a sensor. Connect the sensor and channel again,     </p>
+<pre><code>./iot-network-unsecure.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>To send example data from a sensor to a connected channel, call the csv_to_payload function </p>
+<pre><code>./iot-network-unsecure.sh csv_to_payload farmer@beefchain.com 12345678 energysensor energysensorchannel energy
+# generic call parameters (replace with actual parameters)
+./iot-network-unsecure.sh csv_to_payload &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;file_name&gt;
+</code></pre>
+<p>The file energy.csv file needs to be in iotenetwork/data/energy.csv. Number of curl calls generated will depend on the data rows in the csv file. In general a curl call to dump data can be configured as</p>
+<pre><code># grab sensor key for sensor name 'energysensor' in the variable $sensor_key
+source env/keys/energysensor.sh
+# grab channel_id for channel name 'energysensorchannel' in the variable $channel_id 
+source env/channels/energysensorchannel.sh
+# make a curl call to put random energy data in mongodb database
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Thing $sensor_key" http://$iot_server_address/http/channels/$channel_id/messages -d '[{"bn":"urn:dev:DEVEUI:energysensor:", "bt": 1.58565075E9},{"n": "electricity", "v": 35, "u": "kWh"},{"n": "diesel", "v": 50, "u": "lb"}]'
+</code></pre>
+<p>To read back data from database, call the getdata function specifying the type of database (e.g. mongodb) with user credentials (email, pass), sensor name, channel name alonmg with offset and limit of data to view </p>
+<pre><code>./iot-network-unsecure.sh getdata mongodb farmer@beefchain.com 12345678 energysensor energysensorchannel 0 20
+# generic call parameters (replace with actual parameters)
+./iot-network-unsecure.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;channel_name&gt; &lt;data_offset&gt; &lt;data_limit&gt;
+</code></pre>
+<p>A registered user can also dump data in a file on host machine by calling the dumpdata function  </p>
+<pre><code> ./iot-network-unsecure.sh dumpdata mongodb farmer@beefchain.com 12345678 farmer_data_dump
+ # generic call parameters (replace with actual parameters)
+./iot-network-unsecure.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;output_file_name&gt;
+</code></pre>
+<p><code>Remove configureadmin method from file ./iot-network-secure.sh if client using the file is generic user</code></p>
+<h3 id="multihost-secured">Multihost Secured</h3>
+<p>To use the multihost setup using secured connections, generate the certificates by modifying the file iotnetwork/docker/ssl/Makefile. On line 7, change variable value from 'localhost' to the actual host url, e.g. '203.0.113.45'. Then generate certificate and make sure the file iotnetwork/docker/ssl/certs/ca.crt is availabe at the client host. </p>
+<p>Configure and import the url address of the deployed server in the variable 'iot_server_address' </p>
+<pre><code>source environment/service_ip_addresses.sh
+</code></pre>
+<p>Use the script ./iot-network-secure.sh to make calls to the main server from a host that can reach the server over ip </p>
+<h4 id="create-user_1">Create User</h4>
+<pre><code>   user_email='farmer@beefchain.com'
+   user_pass='12345678'
+
+# using bash variables
+./iot-network-secure.sh newuser $user_email $user_pass
+# using direct parameters
+./iot-network-secure.sh newuser farmer@beefchain.com 12345678
+</code></pre>
+<p>The id of created user can  be viewed in the bash terminal by </p>
+<pre><code>./iot-network-secure.sh getid farmer@beefchain.com
+# or directly source to bash terminal in variable user_id
+source env/users/$user_email.sh
+</code></pre>
+<h4 id="signin-users_2">Signin Users</h4>
+<p>Once user has been registered, sign in the paltform to get session tokens (JWT Tokens) that can be used to create things and channels. </p>
+<pre><code>./iot-network-secure.sh signin farmer@beefchain.com 12345678
+</code></pre>
+<p>At any time user tokens can be viewed in the bash terminal by </p>
+<pre><code>./iot-network-secure.sh gettoken farmer@beefchain.com
+# or directly source to bash terminal in variable user_token
+source env/tokens/$user_email.sh
+</code></pre>
+<p>To get new tokens, simply signin again or use the existing tokens to check if they are still valid.</p>
+<pre><code>./iot-network-secure.sh checktoken farmer@beefchain.com 12345678
+</code></pre>
+<p>To see all users registered in the paltform at any time, call allusers method using admin username and password</p>
+<pre><code>./iot-network-secure.sh allusers admin@example.com 12345678
+</code></pre>
+<h4 id="create-sensors_2">Create Sensors</h4>
+<p>To create a sensor device using a registerd user, call the createsensor method with a username, password and sensor name</p>
+<pre><code>./iot-network-secure.sh createsensor farmer@beefchain.com 12345678 energysensor
+</code></pre>
+<p>To source directly the sensor related id and key variables to bash</p>
+<pre><code># Assuming the sensor name is 'energysensor'
+source iotnetwork/env/things/energysensor.sh
+source iotnetwork/env/keys/energysensor.sh
+echo $sensor_id 
+echo $sensor_key
+</code></pre>
+<p>A registed user can list all the sensor devices they have on platform any time, call the getthings function with username and password </p>
+<pre><code>./iot-network-secure.sh getthings farmer@beefchain.com 12345678
+</code></pre>
+<p>To create channels, call the createchannel function with a registerd user email, password and channel name </p>
+<pre><code>./iot-network-secure.sh createchannel farmer@beefchain.com 12345678 energysensorchannel
+</code></pre>
+<p>To source directly the channel id variable to bash</p>
+<pre><code># Assuming the sensor name is 'energysensorchannel'
+source iotnetwork/env/things/energysensorchannel.sh
+echo $channel_id
+</code></pre>
+<p>A registed user can list all the channel interfaces they have on platform any time, call the getchannels function with username and password </p>
+<pre><code>./iot-network-secure.sh getchannels farmer@beefchain.com 12345678
+</code></pre>
+<p>To connect a particular sensor to a particular channel, call the connect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network-secure.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>To disconnect a particular sensor from a particular channel, call the disconnect function with users email, pass, sensor name and channel name </p>
+<pre><code>./iot-network-secure.sh disconnect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>Start sending data over a channel using a sensor. Connect the sensor and channel again,     </p>
+<pre><code>./iot-network-secure.sh connect farmer@beefchain.com 12345678 energysensor energysensorchannel
+</code></pre>
+<p>To send example data from a sensor to a connected channel, call the csv_to_payload function </p>
+<pre><code>./iot-network-secure.sh csv_to_payload farmer@beefchain.com 12345678 energysensor energysensorchannel energy
+# generic call parameters (replace with actual parameters)
+./iot-network-secure.sh csv_to_payload &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;file_name&gt;
+</code></pre>
+<p>The file energy.csv file needs to be in iotenetwork/data/energy.csv. Number of curl calls generated will depend on the data rows in the csv file. In general a curl call to dump data can be configured as</p>
+<pre><code># grab sensor key for sensor name 'energysensor' in the variable $sensor_key
+source env/keys/energysensor.sh
+# grab channel_id for channel name 'energysensorchannel' in the variable $channel_id 
+source env/channels/energysensorchannel.sh
+# make a curl call to put random energy data in mongodb database
+curl -s -S -i -X POST -H "Content-Type: application/json" -H "Authorization: Thing $sensor_key" http://$iot_server_address/http/channels/$channel_id/messages -d '[{"bn":"urn:dev:DEVEUI:energysensor:", "bt": 1.58565075E9},{"n": "electricity", "v": 35, "u": "kWh"},{"n": "diesel", "v": 50, "u": "lb"}]'
+</code></pre>
+<p>To read back data from database, call the getdata function specifying the type of database (e.g. mongodb) with user credentials (email, pass), sensor name, channel name alonmg with offset and limit of data to view </p>
+<pre><code>./iot-network-secure.sh getdata mongodb farmer@beefchain.com 12345678 energysensor energysensorchannel 0 20
+# generic call parameters (replace with actual parameters)
+./iot-network-secure.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;sensor_name&gt; &lt;channel_name&gt; &lt;data_offset&gt; &lt;data_limit&gt;
+</code></pre>
+<p>A registered user can also dump data in a file on host machine by calling the dumpdata function  </p>
+<pre><code> ./iot-network-secure.sh dumpdata mongodb farmer@beefchain.com 12345678 farmer_data_dump
+ # generic call parameters (replace with actual parameters)
+./iot-network-secure.sh getdata &lt;database_type&gt; &lt;user_email&gt; &lt;user_pass&gt; &lt;output_file_name&gt;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ipfs/" class="btn btn-neutral float-left" title="IPFS Network"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../overlay/" class="btn btn-neutral float-right" title="Overlay Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ipfs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../overlay/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

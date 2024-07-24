@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/shareddrive/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Network Shared Drive - BeefMesh 1.0</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Network Shared Drive";
+        var mkdocs_page_input_path = "shareddrive.md";
+        var mkdocs_page_url = "/shareddrive/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> BeefMesh 1.0
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sessions/">Sessions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emissions/">Emissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utsa/">UTSA Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../databases/">Databases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipfs/">IPFS Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../iots/">IoT Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overlay/">Overlay Network</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Network Shared Drive</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#applying-net-filters">Applying Net Filters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#removing-shared-folder">Removing Shared Folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#configuring-shared-folder">Configuring Shared Folder</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modify-iptables">Modify IPTables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#join-as-client">Join as Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-volume">Testing Volume</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#debugging-issues">Debugging Issues</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../blockchain/">Blockchain Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utilities/">Utilities and Monitoring</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples and Applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging Issues</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">BeefMesh 1.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Network Shared Drive</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="network-shared-drive">Network Shared Drive</h1>
+<p>Network shared drive serves as an alternative  mechanism for quickly accessing shared beef chain application critical files instead of sharing them from the central beefchain application. Network shared drive applications require dedicated servers spinning up an application and a shared folder to which clients can connect and upload/download documents. We use GlusterFS (https://www.gluster.org/) in our beef chain application to spin up atleast two dedicated servers (in a collaboration group) to which client hosts can connect and start a shared folder.  </p>
+<p><code>It is advisable to use unallocated disk partitions that are mounted on run time for shared network drives instead of a shared folder in system or root parititon to avoid data conflicts or data loss</code></p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Setting up a shared network folder requires more than one physical hosts that can be reached over internet. If you are using virtual machines for testing on the same physical host, make sure they are using 'Bridged Adapter' so that each VM gets a separate network adddress. NAT will not work for creating shared network drive/folder on VMs on the same host machine because this assigns them the same network address. Further, WSL machines on windows also get the same network addresses and currently (January 2024) don't support bridged networking. The scripts provided here have been tested with VirtualBox VMs by setting network to use 'Bridged Adapter'. </p>
+<p><code>Note that GlusterFs works with a minimum of two hosts nodes working as servers to which other client nodes can attach and start a shared volume. For the remainder of tutorial, We will make a distinction of whether the script function should be called on a server or client where required. Also, most of the commands below require raised priviliges so make sure to check whether its safe to run it or not before hand!</code></p>
+<p>To get started, grab the network addresses of each machine and ping other machines to check if they are reachable. Run from within /sharednetdrive folder. </p>
+<pre><code>   # Run from within 'overlay' folder
+./shared-drive.sh ipaddress
+
+# Replace with other hosts ip address    
+ ping &lt;other_host_ip_address&gt;
+</code></pre>
+<p>The shared-drive.sh script saves environment variables in /sharednetdrive/env folder everytime its called. </p>
+<h2 id="applying-net-filters">Applying Net Filters</h2>
+<p><code>Note: This is applicable on Server and Client</code></p>
+<p>Shared net drive works on specific ports which need to be configured to allow traffic coming and and out of the host network interface. To allow configuring the specific ports, either use ufw (Ubuntu) application or firewall-cmd (Debian, CentOS or others) application. To set network filters using ufw (note: may require raised priviliges!), run from within /sharednetdrive folder</p>
+<pre><code>    # Apply ufw filters
+./shared-drive.sh applyufw
+# Remove ufw filters
+./shared-drive.sh removeufw
+# list applied ufw filters 
+./shared-drive.sh listufw
+# disable ufw application 
+./shared-drive.sh disableufw
+# enable ufw application 
+./shared-drive.sh enableufw
+</code></pre>
+<p><code>Note: Using both filters on a linux system will cause the same error mentioned earlier due to conflicts. For a similar error scenario, remove and disable either of the network filter application completely and apply and enable the other one!</code></p>
+<p>To set network filters using firewall-cmd (note: may require raised priviliges!), run from within /sharednetdrive folder</p>
+<pre><code># Apply firewall filters
+./shared-drive.sh applyfirewall
+# Remove firewall filters
+./shared-drive.sh removefirewall
+# list applied firewall filters 
+./shared-drive.sh listfirewall
+# disable firewall application 
+./shared-drive.sh disablefirewall
+# enable firewall application 
+./shared-drive.sh enablefirewall
+</code></pre>
+<h2 id="removing-shared-folder">Removing Shared Folder</h2>
+<p><code>Note: This is applicable on Server and Client</code></p>
+<p>We make a distinction between folder and volume here. A folder is a directory on host machine which when shared over network is seen as a volume with a specific name. Hence different folders on different hosts with different paths can be mapped to one volume. To remove any lingering folders and volumes from previous GlusterFS configurations and to start a new, first check for any existing  volumes </p>
+<pre><code>   # If you don't know any volumes
+ ./shared-drive.sh listvolume
+
+ # If you know the volume name (e.g. beefchainvolume) and need details
+ ./shared-drive.sh listvolume beefchainvolume
+</code></pre>
+<p>Calling the 'listvolume' function stores details of volumes listed under gluster in shardnetdrive/env/volume_info.txt for future reference. Once you know the volume name (e.g. beefchainvolume), you can delete the volume (make sure to create a backup before doing so!)</p>
+<pre><code> ./shared-drive.sh deletevolume &lt;replace_volume_name_here&gt;
+</code></pre>
+<p>Once the volume has been deleted, you can now safely remove the folder from the host (make backup before doing so!)</p>
+<pre><code>   # To remove a shared folder from host (e.g. /tmp/shared-beefchain-folder)
+   ./shared-drive.sh removefolder &lt;replace_full_folder_path_here&gt;
+</code></pre>
+<p>If the volume still persists, then remove the bricks before attempting to proceed to delete volume. Bricks information can be viewed by listing volume information and brick can be removed by</p>
+<pre><code># Assumes volume replica count 2! Change variable 'REPLICA_COUNT' in script if its different 
+./shared-drive.sh removebrick &lt;volume_name&gt; &lt;brick_to_remove&gt;
+
+# Call to removebrick method with example paramaters
+./shared-drive.sh removebrick beefchain 192.168.1.13:/tmp/beefchain-storage
+</code></pre>
+<h2 id="configuring-shared-folder">Configuring Shared Folder</h2>
+<p><code>Note: This is applicable on Server</code></p>
+<p>To start configuring a shared volume, first create a folder on the host (server) machine. It is recommende that a new parition is formatted and used instead of using a folder that is created on s system (root) directory. The commands use '--force' flag to create folder or volume so make sure you are not passing a sensitive folder path. First create a shared folder that will be used for gluster volume</p>
+<pre><code>   # Create a folder to use, e.g. /tmp/beefchain-shared-folder
+   ./shared-drive.sh makefolder &lt;replace_full_folder_path_here&gt;
+</code></pre>
+<p>Next, connect to a second server node (note that GlusterFS require minimum two server nodes)</p>
+<pre><code>   # Make sure the other node (e.g. 192.168.1.25) can be pinged first
+   ./shared-drive.sh connectnode &lt;replace_node_ipaddress_here&gt;
+</code></pre>
+<p>If there are issues connecting between server node, modify iptables to allow traffic as described in section ##  Modify IPtables
+Once the nodes are successfully connected, you can check node status </p>
+<pre><code>./shared-drive.sh nodestatus
+</code></pre>
+<p>The above command should return a set of connected nodes, e.g. </p>
+<pre><code>UUID                    Hostname        State
+292d2c93-e7f3-44a4-b7f2-8f1da5759a20    192.168.1.13    Connected 
+e378b375-8106-4f42-bf89-b28db00cf186    localhost       Connected
+</code></pre>
+<p>Once the host server shows up as connected, configure a shared volume</p>
+<pre><code>     # Generic command (replace with exact parameters)
+./shared-drive.sh configurevolume &lt;volume_name_here&gt; &lt;host_address_here&gt; &lt;folder_path_here&gt;
+
+ # Above command with specific example parameters 
+./shared-drive.sh configurevolume beefchain 192.168.1.21 /tmp/beefchain-shared-folder
+</code></pre>
+<p>Once the shared volume has been successfully configured, start the volume for other clients to access</p>
+<pre><code>./shared-drive.sh startvolume &lt;replace_volume_name_here&gt;
+</code></pre>
+<p>Check status of volume </p>
+<pre><code> # If you don't know any volumes
+ ./shared-drive.sh listvolume
+
+ # If you know the volume name (e.g. beefchain) and need details
+ ./shared-drive.sh listvolume beefchain
+</code></pre>
+<p>To remove a specific server node (e.g. 192.168.1.25) from the gluster server setup, first make backup of volumes shared with the server, stop the volume, delete it and then proceed to removing the node</p>
+<pre><code>./shared-drive.sh removenode &lt;replace_node_ipaddress_here&gt;
+</code></pre>
+<h2 id="modify-iptables">Modify IPTables</h2>
+<p>If there are issues connecting between servers despite being able to ping them,</p>
+<pre><code># To allow incoming traffic from a host server (e.g. 192.168.2.31)
+# Run on all hosts (client and and server)
+./shared-drive.sh allowtraffic &lt;replace_node_ipaddress_here&gt;
+
+# To disallow traffic from a specific host for safety purposes 
+./shared-drive.sh disallowtraffic &lt;replace_node_ipaddress_here&gt;
+</code></pre>
+<h2 id="join-as-client">Join as Client</h2>
+<p>Once a minimum of two server nodes have been configured properly, a gluster client can connect to the servers and with  a local folder where all the shared content over gluster volume is synched! Before doing so make sure that the client can ping any of the server nodes, has a local folder setup with proper permissions and knows the volume name configured over the gluster servers.  </p>
+<pre><code>  # Generic command (replace with exact parameters)
+./shared-drive.sh joinasclient &lt;volume_name_here&gt; &lt;server_address_here&gt; &lt;local_folder_path_here&gt;
+
+ # Above command with specific example parameters 
+./shared-drive.sh joinasclient beefchain 192.168.1.35 /tmp/beefchain-local-folder
+</code></pre>
+<h2 id="testing-volume">Testing Volume</h2>
+<p>To test the configured shared network drive, simply move a file to the shared folder in any host and it should appear shortly in the shared folder on other hosts</p>
+<pre><code>cp BeefMesh/sharednetdrive/test-file.txt /tmp/beefchain-shared-folder/test-file.txt
+</code></pre>
+<h2 id="debugging-issues">Debugging Issues</h2>
+<p><code>Note: This is applicable on Server and Client</code></p>
+<p>If gluster daemon is not running, restart it  </p>
+<pre><code>./shared-drive.sh restartgluster
+</code></pre>
+<p>If previously created shared volumes are causing issues</p>
+<pre><code># Remove caches and earlier volume related data (make backup before doing so!) 
+./shared-drive.sh fixfolderconflict
+
+# Fix permissions for gluster application
+./shared-drive.sh fixpermissions
+</code></pre>
+<p>Removing cache and other related files from gluster library for previously configured volumes may generate extra messages (particularly related to geographic data) such as below but does not interfere with normal operation. This was tested for glusterfs 10.1.</p>
+<pre><code>Traceback (most recent call last):
+File "/usr/lib/x86_64-linux-gnu/glusterfs/python/syncdaemon/gsyncd.py", line 325, in &lt;module&gt; main()
+File "/usr/lib/x86_64-linux-gnu/glusterfs/python/syncdaemon/gsyncd.py", line 41, in main
+argsupgrade.upgrade()
+File "/usr/lib/x86_64-linux-gnu/glusterfs/python/syncdaemon/argsupgrade.py", line 85, in upgrade
+init_gsyncd_template_conf()
+File "/usr/lib/x86_64-linux-gnu/glusterfs/python/syncdaemon/argsupgrade.py", line 50, in init_gsyncd_template_conf
+fd = os.open(path, os.O_CREAT | os.O_RDWR)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/lib/glusterd/geo-replication/gsyncd_template.conf'
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../overlay/" class="btn btn-neutral float-left" title="Overlay Network"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../blockchain/" class="btn btn-neutral float-right" title="Blockchain Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../overlay/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../blockchain/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

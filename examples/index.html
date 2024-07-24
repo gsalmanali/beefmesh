@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/examples/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Examples and Applications - BeefMesh 1.0</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Examples and Applications";
+        var mkdocs_page_input_path = "examples.md";
+        var mkdocs_page_url = "/examples/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> BeefMesh 1.0
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sessions/">Sessions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emissions/">Emissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utsa/">UTSA Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../databases/">Databases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ipfs/">IPFS Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../iots/">IoT Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overlay/">Overlay Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../shareddrive/">Network Shared Drive</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../blockchain/">Blockchain Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utilities/">Utilities and Monitoring</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Examples and Applications</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging Issues</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">BeefMesh 1.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Examples and Applications</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="examples-and-applications">Examples and Applications</h1>
+<p>The microservices provided can be used be used within different collaboration groups to run a number of useful applications including traceability, recording and sharing useful regulatory parameters, managing federated data, using machine learning applications with secure data pipelines, negotiating policies, making collaborative decisions,  measuring and optimizing chain emissions and so much more.    </p>
+<p>Though running full applications require lengthy scripts that start all of the microservices and perform detailed tasks, a few sample scripts are provided in the repository to help building an idea on how to use data once it is collected and available using the running services. </p>
+<p>For example, once data from underlying resoures using IoTs is collected and transmitted over secure blockchain channels for optimization and decision making at a federated node, linear optimization algorithms can be run over it to decide on the paths that organzations can use for routing certain commodity (beef in our case).</p>
+<p>The python script under examples/carbonOptimization/ExampleOptimizationMainServer.py can be used as a test case to get an idea on how the supply chain matrix would look like including the decison variables. An accompanying continerized application is provided under examples/containerized to run the optimization decisions serving other connected services. </p>
+<p>With secure blockchain data pipelines, machine learning models can be shared and optimized in coordination with federated databases maintained at different organizational domains. For example, examples/ProcessorFederated provides scripts with containerized nodes to process recognition of beef images at different processors and gradually improve it over time by coordinating with a federated node that globally combines the models and redistributes it over blockchain channels for keeping track of improvement over time and for cold storage of files.</p>
+<p>The containerized applications can be started in detached form by spinning docker-compose files,</p>
+<pre><code>docker-compose up -d
+</code></pre>
+<p>Different routes that can be called to start sharing machine learning model files are in the app.py file that gets imported into dockerfile during container startup.   </p>
+<p>To manually bring down the application, </p>
+<pre><code>docker stop processor1-app  
+docker stop processor2-app 
+docker stop processor3-app 
+docker stop processor-agg-app
+docker stop processor-server-app
+
+docker rm processor1-app  
+docker rm processor2-app 
+docker rm processor3-app 
+docker rm processor-agg-app
+docker rm processor-server-app
+
+docker volume prune
+docker system prune
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../utilities/" class="btn btn-neutral float-left" title="Utilities and Monitoring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../debugging/" class="btn btn-neutral float-right" title="Debugging Issues">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../utilities/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../debugging/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/ipfs/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>IPFS Network - BeefMesh 1.0</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "IPFS Network";
+        var mkdocs_page_input_path = "ipfs.md";
+        var mkdocs_page_url = "/ipfs/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> BeefMesh 1.0
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sessions/">Sessions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../emissions/">Emissions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utsa/">UTSA Server</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../databases/">Databases</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">IPFS Network</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#singleorg-setup">SingleOrg Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#multiorg-setup">MultiOrg Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cluster-setup">Cluster Setup</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../iots/">IoT Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../overlay/">Overlay Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../shareddrive/">Network Shared Drive</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../blockchain/">Blockchain Network</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../utilities/">Utilities and Monitoring</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples/">Examples and Applications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../debugging/">Debugging Issues</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">BeefMesh 1.0</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">IPFS Network</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ipfs-network">IPFS Network</h1>
+<p>This submodule located under /ipfsnetwork directory is meant to serve as a resource for spinning up nodes to mainatin IPFS database. IPFS, which stands for InterPlanetary File System, is a protocol and network designed to create a peer-to-peer method of storing and sharing hypermedia in a distributed file system. It is a decentralized system for storing and accessing files, webpages, applications, and data, aiming to improve upon the traditional client-server model of the internet. For beef supply chain, it is particualry useful to maintain regulatory data in addititon to off-loading data of different formats from the blockchain ledger. </p>
+<h2 id="singleorg-setup">SingleOrg Setup</h2>
+<p>To run a standalone two node (manager+regulator) ipfs network (assuming one organizational domain) at the beef chain admin side, run the docker-compose file within /ipfsnetwork directory </p>
+<pre><code>docker-compose -f p2p/docker-compose-single-org.yml up -d
+</code></pre>
+<p><code>Note that for testing purposes, 'secrets' lines have been disabled in the docker-compose files. Make sure to pass sensitive information using secure measures using files or by passing parameters through environment variables (.env)</code> </p>
+<p>This spins up two ipfs cotnainers (manager.ipfs.com  and regulator.ipfs.com) and an ipfc cli (ipfscli) container attached to both for quick access to ipfs resources. The containers are connected to beefchain_ipfs network. We run the ipfs network in private setting and remove all external public nodes from our application setup. A number of preconfigurations can be done in the config/config.sh file as well which is used in the docker-compose setup. To setup ipfs in private settings, a swarm key can be used. Spin up swarm key generator container, </p>
+<pre><code>   docker-compose -f swarmkeygen/docker-compose-swarm.yml up -d
+</code></pre>
+<p>Generate a key from the swarm key generator container and copy it to host machine, </p>
+<pre><code>docker exec -i ipfs-swarm-key-gen piskg &gt; swarmkeygen/swarm.key
+</code></pre>
+<p>Now configure the two ipfs nodes to work in a private setting, run from bash terminal</p>
+<pre><code>    ./configure-single.sh
+</code></pre>
+<p>This setsup the two nodes to use private networking by removing all public nodes, adding each others private addresses and copying swarm key. Finally a test is performed by adding a file to manager node and retreiving the file from regulator node by using the CID that was generated at the manager node during the time of file upload. You should see a result like this,</p>
+<pre><code>added /ip4/192.168.0.3/tcp/4001/ipfs/Qmf6G9iaQNVbpYrYxLhEYcSZuyJzya7XV3xxpMLEJ3kBzc
+added /ip4/192.168.0.2/tcp/4001/ipfs/QmUt6WnUFWUmJdBJr4fvPL2oq7KM4gF2M7KNNVbc1veEAS
+Successfully copied 2.05kB to manager.ipfs.com:/var/ipfs
+Successfully copied 2.05kB to regulator.ipfs.com:/var/ipfs
+Successfully copied 2.05kB to manager.ipfs.com:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/test_file.txt
+Successfully copied 2.05kB to $USER_PATH/BeefMesh/ipfsnetwork/test/retrieved_file.txt
+</code></pre>
+<p><code>Note that removing all public addresse and adding only known addresses forces the ipfs nodes to work in private setting. For extra measures you can also force variable LIBP2P_FORCE_PNET to be true by logging into running container and setting variable 'export LIBP2P_FORCE_PNET=true' or enabling it in the docker-compose files 'environment' section</code></p>
+<p>To upload a file (user_file.txt) to the manager ipfs node, first copy it to the container</p>
+<pre><code>docker cp test/user_file.txt manager.ipfs.com:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/user_file.txt
+</code></pre>
+<p>Then upload the file and retrive the CID of the uploaded file to store on blockchain or somewhere else,</p>
+<pre><code>result=$(docker exec manager.ipfs.com ipfs add user_file.txt)
+CID_DATA=$(echo $result | awk '{print $2}')
+</code></pre>
+<p>The contents of the variable (echo $CID_DATA) is a binary format string formed by the hash of the uploaded content (e.g. <code>Qmc1DxF7dmEAmkwn1eynm2BeW6DnFcgvw9s5W1NDeXZc28</code>
+). The CID is stored and kept safe for retrieveing the file later. To retrive the file from the regulator node using the same CID,</p>
+<pre><code>docker exec regulator.ipfs.com bash -c "ipfs cat $CID_DATA &gt; retrieved_user_file.txt"
+</code></pre>
+<p>Now copy back the file from container to the host machine,</p>
+<pre><code>docker cp regulator.ipfs.com:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/retrieved_user_file.txt test/retrieved_user_file.txt
+</code></pre>
+<p>To spin up a number of IPFS nodes associated with multiple organizations for local testing of BeefMesh application, first make sure the single organization containers are down. </p>
+<p>Use the provided script (ipfs-network.sh) to automate upload and download of files. To upload a file,</p>
+<pre><code>  ./ipfs-network.sh upload &lt;container_name&gt; &lt;source_file_path&gt; &lt;container_file_path&gt;
+  ./ipfs-network.sh upload manager.ipfs.com test/user_file.txt /opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/user_file.txt
+</code></pre>
+<p>Note that when uploading a file, a record is maintained in the folder 'ipfs_records'. To download a file using the provided script, </p>
+<pre><code>  ./ipfs-network.sh download &lt;container_name&gt; &lt;cid_data&gt; &lt;container_file_path&gt;
+ ./ipfs-network.sh download manager.ipfs.com Qmc1DxF7dmEAmkwn1eynm2BeW6DnFcgvw9s5W1NDeXZc28 /opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/retrieved_user_file.txt
+</code></pre>
+<p>To configure a ipfs node continer to use a specfic private address from other ipfs container,</p>
+<pre><code> ./ipfs-network.sh configure &lt;container_name&gt; &lt;container_address_to_add&gt; &lt;swarm_key_file_path&gt;
+ ./ipfs-network.sh configure manager.ipfs.com /ip4/172.18.0.3/tcp/4001/ipfs/QmPtQcKFmGWato6K5MvtAgHoVJMbermgDqdjNvVAyfozwD swarmkeygen/swarm.key
+</code></pre>
+<p>To get the address of a ipfs node container for sharing with other ipfs node, </p>
+<p>./ipfs-network.sh getaddress <container_name> 
+   ./ipfs-network.sh getaddress manager.ipfs.com </p>
+<p>A custom container file is provided for instantiating at a new organization. The file is located at ipfsnetwork/p2p/docker-compose-custom.yml</p>
+<p>To bring down containers manually, </p>
+<pre><code>   docker stop manager.ipfs.com regulator.ipfs.com ipfscli ipfs-swarm-key-gen
+
+   docker rm manager.ipfs.com regulator.ipfs.com ipfscli ipfs-swarm-key-gen
+
+   # remove volumes (make sure to create backup before doing do!)
+   docker volume rm p2p_manager.ipfs.com &amp;&amp; docker volume rm  p2p_regulator.ipfs.com &amp;&amp; docker volume prune
+</code></pre>
+<h2 id="multiorg-setup">MultiOrg Setup</h2>
+<p>To run multi-node ipfs network (assuming multiple organizational domain) locally, run the docker-compose file within /ipfsnetwork directory </p>
+<pre><code>docker-compose -f p2p/docker-compose-multi-org.yml up -d
+</code></pre>
+<p><code>Note that for testing purposes, 'secrets' lines have been disabled in the docker-compose files. Make sure to pass sensitive information using secure measures using files or by passing parameters through environment variables (.env)</code> </p>
+<p>We run the ipfs network in private setting and remove all external public nodes from our application setup. These can be preconfigured in the config.sh file and enabled in the docker-compose file. To setup ipfs in private settings, a swarm key can be used. Spin up swarm key generator container, </p>
+<pre><code>   docker-compose -f swarmkeygen/docker-compose-swarm.yml up -d
+</code></pre>
+<p>Generate a key from the swarm key generator container and copy it to host machine, </p>
+<pre><code>docker exec -i ipfs-swarm-key-gen piskg &gt; swarmkeygen/swarm.key
+</code></pre>
+<p>Now configure the two ipfs nodes to work in a private setting, run from bash terminal</p>
+<pre><code>    ./configure-multi.sh
+</code></pre>
+<p>This setsup the two nodes to use private networking by removing all public nodes, adding each others private addresses and copying swarm key. Finally a test is performed by adding a file to manager node and retreiving the file from regulator node by using the CID that was generated at the manager node during the time of file upload.</p>
+<p>To bring down the containers manually</p>
+<pre><code> docker stop ipfscli manager.ipfs.com regulator.ipfs.com farmer.ipfs.com breeder.ipfs.com  retailer.ipfs.com  consumer.ipfs.com distributor.ipfs.com processor.ipfs.com ipfs-swarm-key-gen
+
+ docker rm ipfscli manager.ipfs.com regulator.ipfs.com farmer.ipfs.com breeder.ipfs.com  retailer.ipfs.com  consumer.ipfs.com distributor.ipfs.com processor.ipfs.com ipfs-swarm-key-gen
+</code></pre>
+<h2 id="cluster-setup">Cluster Setup</h2>
+<p>IPFS creates a decentralized method of storing and sharing hypermedia in a distributed file system. While IPFS itself doesn't inherently involve clustering, we can certainly set up clusters of IPFS nodes to improve pinning files and improving performance, redundancy, and availability. Pinning files ensures that they are only available on certain nodes with priority adding another layer of security and reliability. First make sure there are no other IPFS containers running. Generate a cluster secret of random 32 byte hexadecimal stringusing openssl used in docker-compose file later</p>
+<pre><code>export CLUSTER_SECRET=$(openssl rand -hex 32)
+# Save it to a file
+echo $CLUSTER_SECRET &gt; swarmkeygen/cluster_secret.txt
+</code></pre>
+<p>The cluster setup of two ipfs nodes (manager.ipfs.node and regulator.ipfs.node) and two ipfs cluster nodes  (manager.ipfs.cluster and regulator.ipfs.cluster) is split up into two docker-compose files. First, we spin up the manger setup and once its up and running we spin up the regualtor setup which takes configuration settings from the already running manager setup at runtime.  </p>
+<p>To start the manager setup, spin up the docker-compose file</p>
+<pre><code>docker-compose -f p2p/docker-compose-cluster-manager.yml up -d
+</code></pre>
+<p>The running containers connect to beefchain_ipfs network.  To setup ipfs in private settings, a swarm key can be used. Spin up swarm key generator container, </p>
+<pre><code>   docker-compose -f swarmkeygen/docker-compose-swarm.yml up -d
+</code></pre>
+<p>Generate a key from the swarm key generator container and copy it to host machine, </p>
+<pre><code>docker exec -i ipfs-swarm-key-gen piskg &gt; swarmkeygen/swarm.key
+</code></pre>
+<p>Now run the first bash script to configure and extract settings from the running ipfs cluster nodes. </p>
+<pre><code>   ./configure-cluster-1.sh
+</code></pre>
+<p>Next source node and cluster address settings for the manager containers,</p>
+<pre><code>source p2p/secrets/cluster.sh
+</code></pre>
+<p>Spin up the containers for regulator setup,</p>
+<pre><code>docker-compose -f p2p/docker-compose-cluster-regulator.yml up -d
+</code></pre>
+<p>Next, run the second bash script to configure the regulator setup which also tests uploading files to manager nodes and retrieving them from regulator nodes. </p>
+<pre><code>./configure-cluster-2.sh
+</code></pre>
+<p>Finally, test cluster settings from any cluster node. Copy test files to regulator cluster </p>
+<pre><code>docker cp test/test_file.txt regulator.ipfs.cluster:/tmp/test_file.txt
+</code></pre>
+<p>Add file to cluster, </p>
+<pre><code>file_upload_info=(docker exec -it regulator.ipfs.cluster ipfs-cluster-ctl add tmp/test_file.txt)
+
+file_upload_cid=$(echo $file_upload_info | awk '{print $2}')
+</code></pre>
+<p>Pin uploaded file to cluster, </p>
+<pre><code>docker exec -it regulator.ipfs.cluster ipfs-cluster-ctl pin add $file_upload_cid
+</code></pre>
+<p>Check status of pinned files, cluster and peer nodes in the cluster  </p>
+<pre><code>docker exec -it regulator.ipfs.cluster ipfs-cluster-ctl pin ls
+
+docker exec -it regulator.ipfs.cluster  ipfs-cluster-ctl status $file_upload_cid
+
+docker exec -it regulator.ipfs.cluster ipfs-cluster-ctl peers ls
+</code></pre>
+<p>To bring down the containers manually, </p>
+<pre><code>   docker stop regulator.ipfs.cluster regulator.ipfs.node manager.ipfs.cluster manager.ipfs.node
+
+
+   docker rm regulator.ipfs.cluster regulator.ipfs.node manager.ipfs.cluster manager.ipfs.node
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../databases/" class="btn btn-neutral float-left" title="Databases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../iots/" class="btn btn-neutral float-right" title="IoT Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../databases/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../iots/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
