@@ -1,0 +1,52 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+networks:
+  emission:
+    name: beef_supply
+    driver: bridge
+    
+volumes:
+  emission.beefsupply.com:
+
+services:
+
+  emission.beefsupply.com:
+    container_name: emission.beefsupply.com
+    build: '.'
+    working_dir: /app
+    labels:
+      service: beefsupply-sessionsadmin
+    environment:
+      #- FABRIC_LOGGING_SPEC=INFO
+      - EMISSION_SUPERADMIN_PASSWORD=/run/secrets/sadmin_emission_password
+      - EMISSION_ADMIN_PASSWORD=/run//secrets/admin_emission_password
+      - EMISSION_TEST_USER_PASSWORD=/run//secrets/testuser_emission_password
+      - EMISSION_GENERIC_USER_PASSWORD=/run/secrets/genericuser_emission_password
+    ports:
+      - 6001:6001      
+    networks:
+      - emission
+    volumes:
+      - emission.beefsupply.com:/var/beefsupply/emission
+    secrets:
+      - sadmin_emission_password
+      - admin_emission_password
+      - testuser_emission_password
+      - genericuser_emission_password
+      
+secrets:
+   sadmin_emission_password:
+     file:  ./secrets/sadmin_password.txt
+   admin_emission_password:
+     file:  ./secrets/admin_password.txt
+   testuser_emission_password:
+     file:  ./secrets/testuser_password.txt
+   genericuser_emission_password:
+     file:  ./secrets/genericuser_password.txt
+
+ 

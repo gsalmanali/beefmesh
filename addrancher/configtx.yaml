@@ -1,0 +1,45 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+---
+################################################################################
+#
+#   Section: Organizations
+#
+#   - This section defines the different organizational identities which will
+#   be referenced later in the configuration.
+#
+################################################################################
+Organizations:
+    - &Rancher
+        # DefaultOrg defines the organization which is used in the sampleconfig
+        # of the fabric.git development environment
+        Name: RancherMSP
+
+        # ID to load the MSP definition as
+        ID: RancherMSP
+
+        MSPDir: ../organizations/peerOrganizations/rancher.beefsupply.com/msp
+
+        Policies:
+            Readers:
+                Type: Signature
+                Rule: "OR('RancherMSP.admin', 'RancherMSP.peer', 'RancherMSP.client')"
+            Writers:
+                Type: Signature
+                Rule: "OR('RancherMSP.admin', 'RancherMSP.client')"
+            Admins:
+                Type: Signature
+                Rule: "OR('RancherMSP.admin')"
+            Endorsement:
+                Type: Signature
+                Rule: "OR('RancherMSP.peer')"
+
+        #AnchorPeers:
+            # AnchorPeers defines the location of peers which can be used
+            # for cross org gossip communication.  Note, this value is only
+            # encoded in the genesis block in the Application section context
+             #- Host peer0.rancher.beefsupply.com
+            #- Port 11051

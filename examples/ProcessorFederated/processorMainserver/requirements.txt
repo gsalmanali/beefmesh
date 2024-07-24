@@ -1,0 +1,12 @@
+requests
+flask
+gunicorn
+flask-socketio
+eventlet
+Flask-Failsafe
+keras
+tensorflow
+IPython
+sklearn
+opencv-python==4.0.0.21
+

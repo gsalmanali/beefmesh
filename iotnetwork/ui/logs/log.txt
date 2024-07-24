@@ -1,0 +1,8 @@
+HTTP/1.1 401 Unauthorized
+Server: nginx/1.20.0
+Date: Thu, 02 May 2024 20:52:03 GMT
+Content-Type: application/json
+Content-Length: 52
+Connection: keep-alive
+
+{"error":"missing or invalid credentials provided"}

@@ -1,0 +1,42 @@
+{"animal_type":"animal_properties","color":"black","weight":75,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd8"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJibGFjayIsIndlaWdodCI6NzUsInNhbHQiOiJhOTRhOGZlNWNjYjE5YmE2MWM0YzA4NzNkMzkxZTk4Nzk4MmZiYmQ4In0=
+ANIMAL HASH:  b969070ef8958dd64efb4854e282dff3c58c76d5123d201b9ed8db10a0e01c47
+PACKAGE ID: animal6package1
+PACKAGE TYPE: 1
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"black","weight":75,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd8"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJibGFjayIsIndlaWdodCI6NzUsInNhbHQiOiJhOTRhOGZlNWNjYjE5YmE2MWM0YzA4NzNkMzkxZTk4Nzk4MmZiYmQ4In0=
+ANIMAL HASH:  b969070ef8958dd64efb4854e282dff3c58c76d5123d201b9ed8db10a0e01c47
+PACKAGE ID: animal6package2
+PACKAGE TYPE: 2
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"black","weight":75,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd8"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJibGFjayIsIndlaWdodCI6NzUsInNhbHQiOiJhOTRhOGZlNWNjYjE5YmE2MWM0YzA4NzNkMzkxZTk4Nzk4MmZiYmQ4In0=
+ANIMAL HASH:  b969070ef8958dd64efb4854e282dff3c58c76d5123d201b9ed8db10a0e01c47
+PACKAGE ID: animal6package3
+PACKAGE TYPE: 3
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"brown","weight":78,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd9"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJicm93biIsIndlaWdodCI6NzgsInNhbHQiOiJhOTRhOGZlNWNjYjE5YmE2MWM0YzA4NzNkMzkxZTk4Nzk4MmZiYmQ5In0=
+ANIMAL HASH:  614bb4ac39adda711a0f93f6c96479de037bfc2382fcac43660fd58962e7cfa0
+PACKAGE ID: animal7package1
+PACKAGE TYPE: 1
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"grey","weight":81,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbb10"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJncmV5Iiwid2VpZ2h0Ijo4MSwic2FsdCI6ImE5NGE4ZmU1Y2NiMTliYTYxYzRjMDg3M2QzOTFlOTg3OTgyZmJiMTAifQ==
+ANIMAL HASH:  ffac4d1184034e914a011c8e93070bddbf1bbb53a2a447540c690dd15f9f0dd2
+PACKAGE ID: animal8package1
+PACKAGE TYPE: 1
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"white","weight":84,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbb11"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJ3aGl0ZSIsIndlaWdodCI6ODQsInNhbHQiOiJhOTRhOGZlNWNjYjE5YmE2MWM0YzA4NzNkMzkxZTk4Nzk4MmZiYjExIn0=
+ANIMAL HASH:  869c2c3d906625cc9eacafc639d539ef472afc87edca4f500c926651707fbfae
+PACKAGE ID: animal9package1
+PACKAGE TYPE: 1
+OWNER:  processor1
+{"animal_type":"animal_properties","color":"orange","weight":87,"salt":"a94a8fe5ccb19ba61c4c0873d391e987982fbb12"}
+ANIMAL PROPERTIES:  eyJhbmltYWxfdHlwZSI6ImFuaW1hbF9wcm9wZXJ0aWVzIiwiY29sb3IiOiJvcmFuZ2UiLCJ3ZWlnaHQiOjg3LCJzYWx0IjoiYTk0YThmZTVjY2IxOWJhNjFjNGMwODczZDM5MWU5ODc5ODJmYmIxMiJ9
+ANIMAL HASH:  08a1f053442b09f9e3e789022cbd331f73e5c76fac1d2550fadfff407f93b3ab
+PACKAGE ID: animal10package1
+PACKAGE TYPE: 1
+OWNER:  processor1

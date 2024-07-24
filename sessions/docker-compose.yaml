@@ -1,0 +1,53 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+networks:
+  sessions:
+    name: beef_supply
+    driver: bridge
+    
+volumes:
+  session.beefsupply.com:
+
+services:
+
+  session.beefsupply.com:
+    container_name: session.beefsupply.com
+    build: '.'
+    working_dir: /app
+    labels:
+      service: beefsupply-sessionsadmin
+    #restart: always
+    environment:
+      #- FABRIC_LOGGING_SPEC=INFO
+      - SESSION_SUPERADMIN_PASSWORD=/run/secrets/sadmin_beefchain_password
+      - SESSION_ADMIN_PASSWORD=/run//secrets/admin_beefchain_password
+      - SESSION_TEST_USER_PASSWORD=/run//secrets/testuser_beefchain_password
+      - SESSION_GENERIC_USER_PASSWORD=/run/secrets/genericuser_beefchain_password
+    ports:
+      - 7001:7001      
+    networks:
+      - sessions
+    volumes:
+      - session.beefsupply.com:/var/beefsupply/session
+    secrets:
+      - sadmin_beefchain_password
+      - admin_beefchain_password
+      - testuser_beefchain_password
+      - genericuser_beefchain_password
+      
+secrets:
+   sadmin_beefchain_password:
+     file:  ./secrets/sadmin_password.txt
+   admin_beefchain_password:
+     file:  ./secrets/admin_password.txt
+   testuser_beefchain_password:
+     file:  ./secrets/testuser_password.txt
+   genericuser_beefchain_password:
+     file:  ./secrets/genericuser_password.txt
+
+ 

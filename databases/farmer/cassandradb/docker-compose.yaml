@@ -1,0 +1,119 @@
+version: '2.4' 
+
+#networks:
+ # farmer-cassandra 
+      #ipam
+          #driver default
+          #config
+              #- subnet 172.30.0.0/16
+networks:
+  farmer:
+    name:  farmer
+    driver: bridge
+    
+    
+volumes:
+    farmercassdb_data:
+
+services:
+  farmercassdb:
+    image: cassandra:3.11.10                         
+    #restart: on-failure 
+    container_name: farmercassdb
+    #hostname: farmercassdb
+    #mem_limit: 2g  
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        #test: ["CMD", "nodetool", "status"]
+        interval: 5s
+        timeout: 10s
+        retries: 10
+    networks:
+      - farmer
+          # ipv4_address 172.30.0.2
+    #entrypoint /opt/cassandra/bin/docker-entrypoint.sh
+    #command /usr/local/bin/docker-entrypoint.sh
+    ports:
+      #- "7000:7000"
+      #- "7001:7001"
+      #- "7199:7199"
+      - "9034:9042"  # Expose native binary CQL port for your apps
+      #- "9160:9160"      
+    volumes:
+      #- ./farmercassdb_data:/var/lib/cassandra/data    
+      - ./farmercassdb_data:/var/lib/cassandra   
+      #- ./etc/farmercassdb:/etc/cassandra  
+      #- ./entrypoint/:/opt/cassandra/bin
+      #- ./commitlog/farmercassdb:/var/lib/cassandra/commitlog
+      #- ./hints/farmercassdb:/var/lib/cassandra/hints
+      #- ./saved_caches/farmercassdb:/var/lib/cassandra/saved_caches
+      #- ./logs:/var/log/cassandra
+    environment: &environment    # Declare and save environments variables into
+      - CASSANDRA_SEEDS=farmercassdb    # The first node will be seed
+      - CASSANDRA_CLUSTER_NAME=farmermdb  
+        #CASSANDRA_HOME /opt/cassandra  
+        #CASSANDRA_CONF /etc/cassandra 
+        #CASSANDRA_PATH /opt/cassandra/bin:$PATH  
+      - CASSANDRA_DC=dc1
+      - CASSANDRA_RACK=rack1
+      #- CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+      #- CASSANDRA_ENDPOINT_SNITCH=SimpleSnitch
+      - CASSANDRA_NUM_TOKENS=128
+        #CASSANDRA_PASSWORD_SEEDER 1
+      - CASSANDRA_PASSWORD=cassandra
+      - CASSANDRA_USERNAME=cassandra
+      #- CASSANDRA_BROADCAST_ADDRESS=0.0.0.0
+      #- CASSANDRA_LISTEN_ADDRESS=0.0.0.0
+      #- CASSANDRA_RPC_ADDRESS=0.0.0.0
+      #- CASSANDRA_BROADCAST_RPC_ADDRESS=127.0.0.30
+      #- CASSANDRA_START_RPC=true
+      #- MAX_HEAP_SIZE=1024M
+      #- HEAP_NEWSIZE=200M
+        #- CASSANDRA_ENABLE_USER_DEFINED_FUNCTIONS=1
+    #expose:
+        # Intra-node communication
+        #- 7000
+        # TLS intra-node communication
+        #- 7001
+        # JMX
+        #- 7199
+        # CQL
+        #- 9034
+        # Thrift service
+        #- 9160
+        #- 9033
+        #- 9034
+        #- 9035
+        #- 9044
+        #- 9045
+    #ulimits:
+        #memlock: -1
+        #nproc: 32768
+        #nofile: 100000
+                
+  cassandra-web:
+    image: jmaciel33/cassandra-web:0.4.0
+    container_name: cassandra-web
+    environment:
+      #HOST_PORT: ":83"
+      #READ_ONLY: 0 
+      #CASSANDRA_HOST: farmercassdb
+      CASSANDRA_HOST_IP: 127.0.0.1
+      CASSANDRA_PORT: 9034
+      CASSANDRA_USERNAME: cassandra
+      CASSANDRA_PASSWORD: cassandra
+      CASSANDRA_WEB_PORT: 0.0.0.0:3003
+      CASSANDRA_WEB_LOG_LEVEL: info
+      #APP_PATH: 
+    #volumes:
+    #  - ./cassandra-web:/usr/share/nginx/html
+    ports:
+      - "3003:3000"
+      - "8083:8080"
+    links:
+      - farmercassdb
+    depends_on:
+      - farmercassdb
+      
+      
+      

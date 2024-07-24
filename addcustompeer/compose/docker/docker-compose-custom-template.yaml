@@ -1,0 +1,75 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+volumes:
+  peer1.REPLACE_ORG.beefsupply.com:
+
+networks:
+  supply:
+    name: beef_supply
+ 
+services:
+
+  peer1.custom.beefsupply.com:
+    container_name: peer1.${customOrg}.beefsupply.com
+    image: hyperledger/fabric-peer:latest
+    labels:
+      service: hyperledger-fabric
+    environment:
+      #Generic peer variables
+      - FABRIC_CFG_PATH=/etc/hyperledger/peercfg
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      # the following setting starts chaincode containers on the same
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=beef_supply
+      - FABRIC_LOGGING_SPEC=INFO
+      #- FABRIC_LOGGING_SPEC=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+      # Peer specific variabes
+      - CORE_PEER_ID=peer1.${customOrg}.beefsupply.com
+      #- CORE_PEER_ADDRESS=peer0.rancher.beefsupply.com:11051
+      - CORE_PEER_ADDRESS=peer1.${customOrg}.beefsupply.com:${CUSTOM_CORE_PEER_ADDRESS_PORT}
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:${CUSTOM_CORE_PEER_ADDRESS_PORT}
+      - CORE_PEER_CHAINCODEADDRESS=peer1.${customOrg}.beefsupply.com:${CUSTOM_CHAINCODE_PORT}
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:${CUSTOM_CHAINCODE_PORT}
+      #- CORE_PEER_GOSSIP_BOOTSTRAP=peer0.${customOrg}.beefsupply.com:9051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.${customOrg}.beefsupply.com:${CUSTOM_CORE_PEER_ADDRESS_PORT}
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.${customOrg}.beefsupply.com:${CUSTOM_CORE_PEER_ADDRESS_PORT}
+      - CORE_PEER_LOCALMSPID=${customORG}MSP
+      - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:${CUSTOM_OPERATIONS_PORT}
+      - CORE_METRICS_PROVIDER=prometheus    
+      - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG={"peername":"peer1${customOrg}"}
+      - CORE_CHAINCODE_EXECUTETIMEOUT=300s   
+    volumes:
+        - /var/run/docker.sock:/host/var/run/docker.sock
+        - ../../../organizations/peerOrganizations/${customOrg}.beefsupply.com/peers/peer1.${customOrg}.beefsupply.com/msp:/etc/hyperledger/fabric/msp
+        - ../../../organizations/peerOrganizations/${customOrg}.beefsupply.com/peers/peer1.${customOrg}.beefsupply.com/tls:/etc/hyperledger/fabric/tls
+        - ../../../organizations/peerOrganizations/${customOrg}.beefsupply.com/peers/peer1.${customOrg}.beefsupply.com:/etc/hyperledger/fabric     
+        - peer1.${customOrg}.beefsupply.com:/var/hyperledger/production
+        - ./peercfg:/etc/hyperledger/peercfg
+    #working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    #working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    working_dir: /root
+    command: peer node start
+    ports:
+      #- 12051:9051
+      #- 12051:12051
+      - ${CUSTOM_CORE_PEER_ADDRESS_PORT}:${CUSTOM_CORE_PEER_ADDRESS_PORT}
+      - ${CUSTOM_CHAINCODE_PORT}:${CUSTOM_CHAINCODE_PORT}
+      - ${CUSTOM_OPERATIONS_PORT}:${CUSTOM_OPERATIONS_PORT}
+      #- 12052:12052
+      #- 9464:9464
+    networks:
+      - supply
+
+  

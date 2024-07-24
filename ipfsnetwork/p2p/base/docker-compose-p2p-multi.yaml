@@ -1,0 +1,161 @@
+# Copyright 2019 IBM Corp.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# Modifications Notice:
+# Date: 01-01-2023
+# Modified by: Salman Ali
+#
+
+version: '3'
+
+services:
+  farmer.ipfs.com:
+    container_name: farmer.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=farmer.ipfs.com
+     # LIBP2P_FORCE_PNET: '1'
+    ports:
+      - 4001:4001
+      - 5001:5001
+      - 8079:8079
+      - 8081:8081
+    volumes:
+      - /var/run/:/host/var/run/
+      - farmer.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/farmer:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/farmer
+
+  breeder.ipfs.com:
+    container_name: breeder.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=breeder.ipfs.com
+    ports:
+      - 6001:6001
+      - 7001:7001
+      - 9080:9080
+      - 9081:9081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  breeder.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/breeder:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/breeder
+
+  processor.ipfs.com:
+    container_name: processor.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=processor.ipfs.com
+    ports:
+      - 8001:8001
+      - 9001:9001
+      - 10080:10080
+      - 10081:10081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  processor.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/processor:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/processor
+
+  distributor.ipfs.com:
+    container_name: distributor.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=distributor.ipfs.com
+    ports:
+      - 10001:10001
+      - 11001:11001
+      - 11080:11080
+      - 11081:11081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  distributor.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/distributor:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/distributor
+
+
+
+  retailer.ipfs.com:
+    container_name: retailer.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=retailer.ipfs.com
+    ports:
+      - 12001:12001
+      - 13001:13001
+      - 12080:12080
+      - 12081:12081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  retailer.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/retailer:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/retailer
+
+  consumer.ipfs.com:
+    container_name: consumer.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=consumer.ipfs.com
+    ports:
+      - 14001:14001
+      - 15001:15001
+      - 13080:13080
+      - 13081:13081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  consumer.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/consumer:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/consumer
+
+  manager.ipfs.com:
+    container_name: manager.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=manager.ipfs.com
+    ports:
+      - 16001:16001
+      - 17001:17001
+      - 14080:14080
+      - 14081:14081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  manager.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/manager:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/manager
+
+  regulator.ipfs.com:
+    container_name: regulator.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=regulator.ipfs.com
+    ports:
+      - 18001:18001
+      - 19001:19001
+      - 15080:15080
+      - 15081:15081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  regulator.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/regulator:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/regulator

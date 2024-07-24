@@ -1,0 +1,5 @@
+http://0.0.0.0:5501/
+http://0.0.0.0:5502/
+http://0.0.0.0:5503/
+
+http://host.docker.internal:5501/

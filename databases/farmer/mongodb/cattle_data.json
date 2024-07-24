@@ -1,0 +1,8 @@
+[
+  { "name": "Bessie", "breed": "Holstein", "age": 4, "gender": "Female", "weight": 650.00 },
+  { "name": "Moo Moo", "breed": "Angus", "age": 2, "gender": "Male", "weight": 550.50 },
+  { "name": "Spot", "breed": "Hereford", "age": 3, "gender": "Female", "weight": 600.25 },
+  { "name": "Daisy", "breed": "Jersey", "age": 5, "gender": "Female", "weight": 500.75 },
+  { "name": "Rocky", "breed": "Limousin", "age": 6, "gender": "Male", "weight": 700.00 }
+]
+

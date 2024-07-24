@@ -1,0 +1,226 @@
+
+cli:
+  
+orderer:
+  listen: 7050
+  operation: 9440
+  admin: 7053
+  couchdb: 
+  cauthority: 9054 and 19054
+
+customOrg:
+  listen: 27051
+  chaincode: 27052
+  #operation: 9465
+  admin: 
+  couchdb: 28984
+  cauthority: 27054 and 37054
+  
+saraOrderer:
+  listen: 7047
+  operation: 9438
+  admin: 7073
+  couchdb: 
+  cauthority: 41054 and 42054
+  
+      
+customOrderer:  
+  listen: 7048
+  operation: 9439
+  admin: 7063
+  couchdb: 
+  cauthority: 40054 and 38054
+
+
+customPeer1:
+  listen: 28051
+  chaincode: 28052
+  operation: 9466
+  admin: 
+  couchdb: 29984
+  cauthority: 27054 and 37054
+
+   
+rancher: 
+  listen: 11051
+  chaincode: 11052
+  #operation: 9463
+  admin: 
+  couchdb: 26984
+  cauthority: 11054 and 20054
+
+rancherOrderer:
+  listen: 7049
+  operation: 9441
+  admin: 7043
+  couchdb: 
+  cauthority: 12054 and 21054
+
+rancherPeer:
+  listen: 11051
+  chaincode: 11052
+  operation: 9463 
+  admin: 
+  couchdb: 26984
+  cauthority: 11054 and 20054
+
+  
+
+manager:
+  listen: 7051
+  chaincode: 7052
+  operation: 9442
+  admin: 
+  couchdb: 5984
+  cauthority: 7054 and 17054
+
+regulator:
+  listen: 9051
+  chaincode: 9052
+  operation: 9445
+  admin: 
+  couchdb: 7984
+  cauthority: 8054 and 18054
+  
+  
+regulatorPeer1:
+  listen: 12051
+  chaincode: 12052
+  operation: 9464
+  admin: 
+  couchdb: 27984
+  cauthority: 8054 and 18054
+
+farmer:
+  listen: 8051
+  chaincode: 8052
+  operation: 9446
+  admin:
+  couchdb: 8984
+  cauthority: 9054 and 19054
+ 
+breeder:
+  listen: 10051
+  chaincode: 10052
+  operation: 9447
+  admin: 
+  couchdb: 9984
+  cauthority: 10054 and 22054
+
+breeder1:
+  listen: 13051
+  chaincode: 13052
+  operation: 9448
+  admin: 
+  couchdb: 10984
+  cauthority: 13054 and 23054
+
+processor:
+  listen: 14051
+  chaincode: 14052
+  operation: 9449
+  admin: 
+  couchdb: 11984
+  cauthority: 14054 and 24054
+  
+processor1:
+  listen: 15051
+  chaincode: 15052
+  operation: 9450
+  admin: 
+  couchdb: 12984
+  cauthority: 15054 and 25054
+  
+processor2:
+  listen: 16051
+  chaincode: 16052
+  operation: 9451
+  admin: 
+  couchdb: 13984
+  cauthority: 16054 and 26054
+  
+distributor:
+  listen: 17051
+  chaincode: 17052
+  operation: 9452
+  admin: 
+  couchdb: 14984
+  cauthority: 17054 and 27054
+  
+distributor1:
+  listen: 18051
+  chaincode: 18052
+  operation: 9453
+  admin: 
+  couchdb: 15984
+  cauthority: 18054 and 28054
+  
+    
+distributor2:
+  listen: 19051
+  chaincode: 19052
+  operation: 9454
+  admin: 
+  couchdb: 16984
+  cauthority: 19054 and 29054
+  
+distributor3:
+  listen: 20051
+  chaincode: 20052
+  operation: 9455
+  admin: 
+  couchdb: 17984
+  cauthority: 20054 and 30054
+ 
+   
+retailor:
+  listen: 21051
+  chaincode: 21052
+  operation: 9456
+  admin: 
+  couchdb: 18984
+  cauthority: 39054 and 31054
+
+
+retailor1:
+  listen: 22051
+  chaincode: 22052
+  operation: 9457
+  admin: 
+  couchdb: 19984
+  cauthority: 22054 and 32054
+
+retailor2:
+  listen: 23051
+  chaincode: 23052
+  operation: 9458
+  admin: 
+  couchdb: 20984
+  cauthority: 23054 and 33054
+  
+retailor3:
+  listen: 24051
+  chaincode: 24052
+  operation: 9459
+  admin: 
+  couchdb: 21984
+  cauthority: 24054 and 34054
+  
+retailor4:
+  listen: 25051
+  chaincode: 25052
+  operation: 9460
+  admin: 
+  couchdb: 22984
+  cauthority: 25054 and 35054
+
+consumer:
+  listen: 26051
+  chaincode: 26052
+  operation: 9461
+  admin: 
+  couchdb: 23984
+  cauthority: 26054 and 36054
+
+  
+  

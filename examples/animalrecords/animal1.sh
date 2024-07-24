@@ -1,0 +1,1 @@
+export ANIMAL_PROPERTIES=$(echo -n "{\"animal_type\":\"animal_properties\",\"animal_id\":\"animal1\",\"color\":\"black\",\"weight\":45,\"salt\":\"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3\"}" | base64 | tr -d \\n)

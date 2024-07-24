@@ -1,0 +1,36 @@
+# Author  : Prof. MM Ghassemi <ghassem3@msu.edu>
+
+version: "3.8"
+
+volumes:
+  processor3-app:
+
+networks:
+  processor-app:
+    name: processor_app
+    driver: bridge
+
+
+services:
+  # A user-defined name for this container
+  processor3-app:
+    container_name: processor3-app
+    # Indicates that `Dockerfile-dev` should be used for local instantiations
+    build:
+        context: .
+        dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "5503:5503"
+    # Mounts the local directory to docker container as a volume.
+    volumes:
+      - .:/app
+      - processor3-app:/var/processor3-app
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - processor-app
+
+
+  

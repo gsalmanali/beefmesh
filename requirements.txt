@@ -1,0 +1,11 @@
+Git
+Curl
+Docker-compose
+Go (version 1.17.13)
+JQ
+Openssl
+GlusterFS-server
+GlusterFS-client
+Hyperledger Fabric 
+
+

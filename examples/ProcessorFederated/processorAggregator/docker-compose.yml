@@ -1,0 +1,38 @@
+# Author  : Prof. MM Ghassemi <ghassem3@msu.edu>
+
+version: "3.8"
+
+volumes:
+  processor-agg-app:
+
+networks:
+  processor-app:
+    name: processor_app
+    driver: bridge
+
+
+
+services:
+  # A user-defined name for this container
+  processor-agg-app:
+    container_name: processor-agg-app
+    # Indicates that `Dockerfile-dev` should be used for local instantiations
+    build:
+        context: .
+        dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "5504:5504"
+    # Mounts the local directory to docker container as a volume.
+    volumes:
+      - .:/app
+      - processor-agg-app:/var/processor-agg-app
+    extra_hosts:
+      #- "host.docker.internal:host-gateway"
+      - "host.docker.internal:172.17.0.1"
+    networks:
+      - processor-app
+
+
+  

@@ -1,0 +1,45 @@
+global:
+  scrape_interval:     120s # By default, scrape targets every 15 seconds.
+  evaluation_interval: 120s # By default, scrape targets every 15 seconds.
+  
+  
+  external_labels:
+      monitor: 'beefchain'
+
+scrape_configs:
+  - job_name: 'mainflux_http_adapter'
+    static_configs:
+      - targets: ['localhost:8180']
+
+  - job_name: 'mainflux_coap_adapter'
+    static_configs:
+      - targets: ['localhost:5683']
+
+  - job_name: 'mainflux_mqtt_adapter'
+    static_configs:
+      - targets: ['localhost:1883']
+
+  - job_name: 'mainflux_ws_adapter'
+    static_configs:
+      - targets: ['localhost:8180']
+
+  - job_name: 'mainflux_things_service'
+    static_configs:
+      - targets: ['localhost:8182']
+
+  - job_name: 'mainflux_users_service'
+    static_configs:
+      - targets: ['localhost:8181']
+
+  - job_name: 'mainflux_bootstrap_service'
+    static_configs:
+      - targets: ['localhost:8183']
+
+  - job_name: 'mainflux_certs_service'
+    static_configs:
+      - targets: ['localhost:8187']
+      
+  - job_name: 'mainflux_certs_service'
+    static_configs:       
+      - targets: ['localhost:9090','cadvisor:8080','node-exporter:9100', 'nginx-exporter:9113']
+

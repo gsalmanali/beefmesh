@@ -1,0 +1,34 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+networks:
+  supply:
+    name: beef_supply
+    #driver: overlay
+  
+
+services:
+
+  ca_rancherorderer:
+    image: hyperledger/fabric-ca:latest
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-rancherorderer
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=12054
+      - FABRIC_CA_SERVER_OPERATIONS_LISTENADDRESS=0.0.0.0:21054
+    ports:
+      - "12054:12054"
+      - "21054:21054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      #- ../fabric-ca/rancher:/etc/hyperledger/fabric-ca-server
+      - ../../../organizations/fabric-ca/rancherorderer:/etc/hyperledger/fabric-ca-server
+      #- ../fabric-ca/org3:/etc/hyperledger/fabric-ca-server
+    container_name: ca_rancherorderer
+    networks:
+      - supply

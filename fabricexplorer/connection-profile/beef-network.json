@@ -1,0 +1,48 @@
+{
+	"name": "beef-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": true,
+		"organization": "ManagerMSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"tracechannel": {
+			"peers": {
+				"peer0.manager.beefsupply.com": {}
+			}
+		}
+	},
+	"organizations": {
+		"ManagerMSP": {
+			"mspid": "ManagerMSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/manager.beefsupply.com/users/User1@manager.beefsupply.com/msp/keystore/${key_value}"
+			},
+			"peers": ["peer0.manager.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/manager.beefsupply.com/users/User1@manager.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.manager.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/manager.beefsupply.com/peers/peer0.manager.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.manager.beefsupply.com:7051"
+		}
+	}
+}

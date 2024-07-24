@@ -1,0 +1,83 @@
+version: '3'
+
+
+volumes:
+  farmerdb_data:
+networks:
+  #external
+    #driver bridge
+  farmer:
+   driver: bridge
+   
+
+services:
+  farmermdb:
+    image: mariadb:10.6
+    container_name: farmermdb
+    environment:
+      - MYSQL_ROOT_PASSWORD=farmermdb
+      - MYSQL_DATABASE=farmermdb
+      #- MARIADB_AUTO_UPGRADE=1
+      #- MARIADB_DISABLE_UPGRADE_BACKUP=1
+      - MYSQL_USER=farmermdb
+      - MYSQL_USERNAME=farmermdb
+      - MYSQL_PASSWORD=farmermdb
+    volumes:
+      - farmerdb_data:/var/lib/mysql
+      #- ./config/:/etc/mysql/conf.d
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    #command --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3307:3306"
+    #network_mode host
+    #env_file
+      #- db.env
+    restart: always
+    #secrets
+      #- mysql_root_password
+      #- mysql_app_password
+    healthcheck: 
+       test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+    networks:
+      - farmer
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    #container_name ${ENV_CONTAINER_NAME}-phpmyadmin
+    container_name: farmerpma
+    #expose
+      #- 80
+    links:
+      - farmermdb
+    ports:
+      - 8082:80
+    depends_on:
+      - farmermdb
+    environment:
+      #- PMA_ABSOLUTE_URI=${ENV_PHPMYADMIN_URI}
+      - PMA_HOST=farmermdb
+      - PMA_PORT=3306
+      #- UPLOAD_LIMIT=2G
+      - PMA_ARBITRARY=1
+      - MYSQL_USERNAME=farmermdb
+      - MYSQL_ROOT_PASSWORD=farmermdb
+    networks:
+      - farmer
+      
+ # secret files on server
+#secrets:
+ # mysql_root_password:
+  #  file: /path/to/your/root/password/file.txt
+ # mysql_app_password:
+ #   file: /path/to/your/default/app/password/file.txt
+    
+# default network for this docker stack
+#networks:
+#  default:
+ #   external:
+  #    name: ${ENV_DOCKER_NETWORK_NAME}     
+ 
+

@@ -1,0 +1,65 @@
+
+# SPDX-License-Identifier: Apache-2.0
+version: '2.1'
+
+volumes:
+  pgdata:
+  walletstore:
+
+networks:
+  supply:
+    external:
+      name: beef_supply
+
+services:
+
+  explorerdb.beefnetwork.com:
+    image: ghcr.io/hyperledger-labs/explorer-db:latest
+    container_name: explorerdb.beefnetwork.com
+    hostname: explorerdb.beefnetwork.com
+    environment:
+      - DATABASE_DATABASE=fabricexplorer
+      - DATABASE_USERNAME=hppoc
+      - DATABASE_PASSWORD=password
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U postgres"
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5532:5432"
+    networks:
+      - supply
+
+  explorer.beefnetwork.com:
+    image: ghcr.io/hyperledger-labs/explorer:latest
+    container_name: explorer.beefnetwork.com
+    hostname: explorer.beefnetwork.com
+    environment:
+      - DATABASE_HOST=explorerdb.beefnetwork.com
+      - DATABASE_DATABASE=fabricexplorer
+      - DATABASE_USERNAME=hppoc
+      - DATABASE_PASSWD=password
+      #- LOG_LEVEL_APP=debug
+      - LOG_LEVEL_APP=info
+      - LOG_LEVEL_DB=debug
+      #- LOG_LEVEL_DB=info
+      #- LOG_LEVEL_CONSOLE=info
+      - LOG_LEVEL_CONSOLE=debug
+      - LOG_CONSOLE_STDOUT=true
+      - DISCOVERY_AS_LOCALHOST=false
+      - PORT=${PORT:-8080}
+    volumes:
+      - ./config.json:/opt/explorer/app/platform/fabric/config.json
+      - ./connection-profile:/opt/explorer/app/platform/fabric/connection-profile
+      - ./organizations:/tmp/crypto
+      - walletstore:/opt/explorer/wallet
+    ports:
+      - "8090:8080"
+    depends_on:
+      explorerdb.beefnetwork.com:
+        condition: service_healthy
+    networks:
+      - supply

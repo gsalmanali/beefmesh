@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  cadvisor:
+      image: gcr.io/cadvisor/cadvisor:latest
+      hostname: cadvisor
+      #platform: linux/x86_64
+      volumes:
+        - "/:/rootfs:ro"
+        - "/var/run:/var/run:ro"
+        - "/sys:/sys:ro"
+        - "/var/lib/docker/:/var/lib/docker:ro"
+        - "/dev/disk/:/dev/disk:ro"
+      ports:
+        - "8080:8080"
+        
+        
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+      
+      
+  grafana:
+    image: grafana/grafana:latest
+    environment: 
+      GF_SECURITY_DISABLE_INITIAL_ADMIN_CREATION: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Admin"
+      GF_AUTH_DISABLE_SIGNOUT_MENU: "true"
+      GF_AUTH_DISABLE_LOGIN_FORM: "true"
+    ports:
+      - "9100:3000"
+      

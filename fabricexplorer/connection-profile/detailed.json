@@ -1,0 +1,453 @@
+{
+	"name": "test-network",
+	"version": "1.0.0",
+	"clients": { "farmerclient":{
+		"tlsEnable": false,
+                 "caCredential": {
+			"id": "admin",
+			"password": "adminpw"
+		},
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw",
+		},
+		"enableAuthentication": true,
+		"organization": "FarmerMSP",
+                "channel": "tracechannel",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+                },
+                  "breederclient":{
+		"tlsEnable": false,
+                 "caCredential": {
+			"id": "admin",
+			"password": "adminpw"
+		},
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw",
+		},
+		"enableAuthentication": true,
+		"organization": "BreederMSP",
+                "channel": "tracechannel",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+                }
+
+
+	},
+	"channels": {
+		"tracechannel": {
+			"peers": {
+				"peer0.farmer.beefsupply.com": {},
+                                "peer0.breeder.beefsupply.com": {},
+                                "peer0.processor.beefsupply.com": {},
+				"peer0.distributor.beefsupply.com": {},
+				"peer0.retailer.beefsupply.com": {},
+				"peer0.consumer.beefsupply.com": {},
+				"peer0.regulator.beefsupply.com": {},
+				"peer0.manager.beefsupply.com": {},
+                                "peer0.farmer1.beefsupply.com": {}
+                                  },                   
+                                                
+			"orderers": {"orderer.beefsupply.com":{}, 
+                                     "breederorderer.beefsupply.com":{} },
+
+                    "connection": {
+            "timeout": {
+              "peer": {
+                "endorser": "6000",
+                "eventHub": "6000",
+                "eventReg": "6000"
+              }
+            }
+          }
+		}
+	},
+	"organizations": {
+		"FarmerMSP": {
+                        "certificateAuthorities": "ca_farmer",
+			"mspid": "FarmerMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/farmer.beefsupply.com/users/Admin@farmer.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.farmer.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/oganizations/peerOrganizations/farmer.beefsupply.com/users/Admin@farmer.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+               "BreederMSP": {
+                        "certificateAuthorities": "ca_breeder",
+			"mspid": "BreederMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/breeder.beefsupply.com/users/Admin@breeder.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.breeder.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/breeder.beefsupply.com/users/Admin@breeder.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+               "ProcessorMSP": {
+                        "certificateAuthorities": "ca_processor",
+			"mspid": "ProcessorMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/processor.beefsupply.com/users/Admin@processor.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.processor.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/processor.beefsupply.com/users/Admin@processor.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                 "DistributorMSP": {
+                        "certificateAuthorities": "ca_distributor",
+			"mspid": "DistributorMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/distributor.beefsupply.com/users/Admin@distributor.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.distributor.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/distributor.beefsupply.com/users/Admin@distributor.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                  "RetailerMSP": {
+                        "certificateAuthorities": "ca_retailer",
+			"mspid": "RetailerMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/retailer.beefsupply.com/users/Admin@retailer.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.retailer.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/retailer.beefsupply.com/users/Admin@retailer.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                 "ConsumerMSP": {
+                        "certificateAuthorities": "ca_consumer",
+			"mspid": "ConsumerMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/consumer.beefsupply.com/users/Admin@consumer.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.consumer.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/consumer.beefsupply.com/users/Admin@consumer.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                  "RegulatorMSP": {
+                        "certificateAuthorities": "ca_regulator",
+			"mspid": "RegulatorMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/regulator.beefsupply.com/users/Admin@regulator.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.regulator.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/regulator.beefsupply.com/users/Admin@regulator.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                   "ManagerMSP": {
+                        "certificateAuthorities": "ca_manager",
+			"mspid": "ManagerMSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/manager.beefsupply.com/users/Admin@manager.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.manager.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/manager.beefsupply.com/users/Admin@manager.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		},
+                     "Farmer1MSP": {
+                        "certificateAuthorities": "ca_farmer1",
+			"mspid": "Farmer1MSP",
+                        "fullpath": false,
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/farmer1.beefsupply.com/users/Admin@farmer1.beefsupply.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.farmer1.beefsupply.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/farmer1.beefsupply.com/users/Admin@farmer1.beefsupply.com/msp/signcerts/cert.pem"
+			}
+		}
+
+	},
+	"peers": {
+		"peer0.farmer.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/farmer.beefsupply.com/peers/peer0.farmer.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.farmer.beefsupply.com:7051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+            "hostnameOverride": "peer0.farmer.beefsupply.com",
+            "ssl-target-name-override": "peer0.farmer.beefsupply.com"
+          }
+
+		},
+                "peer0.breeder.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/breeder.beefsupply.com/peers/peer0.breeder.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.breeder.beefsupply.com:9051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+            "hostnameOverride": "peer0.breeder.beefsupply.com",
+            "ssl-target-name-override": "peer0.breeder.beefsupply.com"
+                    }
+
+		},
+                  "peer0.processor.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/processor.beefsupply.com/peers/peer0.processor.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.processor.beefsupply.com:10051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+            "hostnameOverride": "peer0.processor.beefsupply.com",
+            "ssl-target-name-override": "peer0.processor.beefsupply.com"
+                    }
+
+		},
+                  "peer0.distributor.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/distributor.beefsupply.com/peers/peer0.distributor.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.distributor.beefsupply.com:12051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+            "hostnameOverride": "peer0.distributor.beefsupply.com",
+            "ssl-target-name-override": "peer0.distributor.beefsupply.com"
+                    }
+
+		},
+                "peer0.retailer.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/retailer.beefsupply.com/peers/peer0.retailer.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.retailer.beefsupply.com:13051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+              "hostnameOverride": "peer0.retailer.beefsupply.com",
+            "ssl-target-name-override": "peer0.retailer.beefsupply.com"
+                    }
+
+		},
+                 "peer0.consumer.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/consumer.beefsupply.com/peers/peer0.consumer.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.consumer.beefsupply.com:14051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+              "hostnameOverride": "peer0.consumer.beefsupply.com",
+            "ssl-target-name-override": "peer0.consumer.beefsupply.com"
+                    }
+
+		},
+                 "peer0.regulator.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/regulator.beefsupply.com/peers/peer0.regulator.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.regulator.beefsupply.com:15051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+              "hostnameOverride": "peer0.regulator.beefsupply.com",
+            "ssl-target-name-override": "peer0.regulator.beefsupply.com"
+                    }
+
+		},
+                  "peer0.manager.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/manager.beefsupply.com/peers/peer0.manager.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.manager.beefsupply.com:16051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+              "hostnameOverride": "peer0.manager.beefsupply.com",
+            "ssl-target-name-override": "peer0.manager.beefsupply.com"
+                    }
+
+		},
+                   "peer0.farmer1.beefsupply.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/organizations/peerOrganizations/farmer1.beefsupply.com/peers/peer0.farmer1.beefsupply.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.farmer1.beefsupply.com:17051",
+                       "eventUrl": "grpcs://localhost:7053",
+                        "grpcOptions": {
+              "hostnameOverride": "peer0.farmer1.beefsupply.com",
+            "ssl-target-name-override": "peer0.farmer1.beefsupply.com"
+                    }
+
+		}
+
+
+	},
+"orderers": {
+        "orderer.beefsupply.com": {
+          "url": "grpcs://localhost:7050"
+        }
+
+      },
+"certificateAuthorities": {
+        "ca_farmer": {
+          "url": "https://localhost:7054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+          "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/farmer.beefsupply.com/ca/ca.farmer.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-farmer"
+        },
+         "ca_breeder": {
+          "url": "https://localhost:8054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+           "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/breeder.beefsupply.com/ca/ca.breeder.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-breeder"
+        },
+         "ca_processor": {
+          "url": "https://localhost:10054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+           "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/processor.beefsupply.com/ca/ca.processor.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-processor"
+        },
+         "ca_distributor": {
+          "url": "https://localhost:12054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+             "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/distributor.beefsupply.com/ca/ca.distributor.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-distributor"
+        },
+         "ca_retailer": {
+          "url": "https://localhost:13054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+             "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/retailer.beefsupply.com/ca/ca.retailer.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-retailer"
+        },
+         "ca_consumer": {
+          "url": "https://localhost:14054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+ "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/consumer.beefsupply.com/ca/ca.consumer.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-consumer"
+        },
+         "ca_regulator": {
+          "url": "https://localhost:15054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+ "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/regulator.beefsupply.com/ca/ca.regulator.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-regulator"
+        },
+        "ca_manager": {
+          "url": "https://localhost:16054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+             "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/manager.beefsupply.com/ca/ca.manager.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-manager"
+        },
+        "ca_orderer": {
+          "url": "https://localhost:9054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+              "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/ordererOrganizations/beefsupply.com/orderers/orderer.beefsupply.com/msp/tlscacerts/tlsca.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-orderer"
+        },
+         "ca_farmer1": {
+          "url": "https://localhost:17054",
+          "httpOptions":{
+            "verify": false
+          },
+          "registrar": {
+            "enrollId": "admin",
+            "enrollSecret": "adminpw"
+          },
+               "tlsCACerts": {
+			"path": "/tmp/crypto/organizations/peerOrganizations/farmer1.beefsupply.com/ca/ca.farmer1.beefsupply.com-cert.pem"
+			},
+          "caName": "ca-farmer1"
+        }
+
+
+      }
+
+}

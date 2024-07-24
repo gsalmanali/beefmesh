@@ -1,0 +1,21 @@
+
+# Cassandra storage config YAML
+
+cluster_name: FarmerCassandraDB
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
+partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+endpoint_snitch: SimpleSnitch
+seed_provider:
+  - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+    parameters:
+      # Ex: "<ip1>,<ip2>,<ip3>"
+      - seeds: "cassandra1"
+      #  resolve_multiple_ip_addresses_per_dns_record: "false"
+storage_port: 7000
+listen_address: 172.30.0.2
+native_transport_port: 9042
+listen_address: localhost
+rpc_address: localhost
+broadcast_rpc_address: 0.0.0.1
+

@@ -1,0 +1,7 @@
+biopython
+pysam
+snps
+scipy
+python-picard
+gsalib
+

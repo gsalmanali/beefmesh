@@ -1,0 +1,58 @@
+# Copyright 2019 IBM Corp.
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# Modifications Notice:
+# Date: 01-01-2023
+# Modified by: Salman Ali
+#
+
+version: '3'
+
+services:
+  manager.ipfs.com:
+    container_name: manager.ipfs.com
+    hostname: manager.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=manager.ipfs.com
+    ports:
+      - 4001:16001
+      - 5001:17001
+      - 14080:14080
+      - 14081:14081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  manager.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/manager:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/manager
+
+  regulator.ipfs.com:
+    container_name: regulator.ipfs.com
+    hostname: regulator.ipfs.com
+    extends:
+      file: p2p-base.yaml
+      service: p2p-base
+    environment:
+      - IPFS_HOST=regulator.ipfs.com
+    ports:
+      - 4002:18001
+      - 5002:19001
+      - 15080:15080
+      - 15081:15081
+    volumes:
+      - /var/run/:/host/var/run/
+      -  regulator.ipfs.com:/var/ipfs/peer
+      #- ../../../organizations/regulator:/opt/gopath/src/github.com/BeefChain/IPFS/p2p/peer/regulator

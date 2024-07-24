@@ -1,0 +1,77 @@
+Carbon Emission Cost Matrix Statsitics
+np.mean 4998.537882650607
+np.average 4998.537882650607
+np.std 1159.6009639765834
+np.var 1344674.3956554215
+np.median 4998.645344330197
+Carbon Emission Cost Matrix Statsitics
+Processor Demand Matrix Statsitics
+np.mean 17609.902000000002
+np.average 17609.902000000002
+np.std 1408.5246154739361
+np.var 1983941.592396
+np.median 17740.550000000003
+Processor Demand Matrix Statsitics
+Breeder Supply Matrix Statsitics
+np.mean 35222.819
+np.average 35222.819
+np.std 2649.5290157948834
+np.var 7020004.005539004
+np.median 35144.5
+Breeder Supply Matrix Statsitics
+Decision Variable/Allocation Matrix: 
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /home/ali/anaconda3/envs/march23/lib/python3.10/site-packages/pulp/solverdir/cbc/linux/64/cbc /tmp/3bbe474282a744eab0e170529cea30e2-pulp.mps timeMode elapsed branch printingOptions all solution /tmp/3bbe474282a744eab0e170529cea30e2-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 305 COLUMNS
+At line 100306 RHS
+At line 100607 BOUNDS
+At line 120608 ENDATA
+Problem MODEL has 300 rows, 20000 columns and 40000 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+using 299 columns not 3000
+Continuous objective value is 1.07509e+10 - 0.03 seconds
+Cgl0004I processed model has 300 rows, 20000 columns (20000 integer (0 of which binary)) and 40000 elements
+Cbc0012I Integer solution of 1.0751187e+10 found by DiveCoefficient after 306 iterations and 0 nodes (1.63 seconds)
+Cbc0031I 268 added rows had average density of 260.39179
+Cbc0013I At root node, 268 cuts changed objective from 1.0750906e+10 to 1.0751187e+10 in 11 passes
+Cbc0014I Cut generator 0 (Probing) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.684 seconds - new frequency is -100
+Cbc0014I Cut generator 1 (Gomory) - 466 row cuts average 1122.2 elements, 0 column cuts (0 active)  in 0.152 seconds - new frequency is -100
+Cbc0014I Cut generator 2 (Knapsack) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.006 seconds - new frequency is -100
+Cbc0014I Cut generator 3 (Clique) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.001 seconds - new frequency is -100
+Cbc0014I Cut generator 4 (MixedIntegerRounding2) - 176 row cuts average 100.0 elements, 0 column cuts (0 active)  in 0.048 seconds - new frequency is 1
+Cbc0014I Cut generator 5 (FlowCover) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.033 seconds - new frequency is -100
+Cbc0014I Cut generator 6 (TwoMirCuts) - 225 row cuts average 214.7 elements, 0 column cuts (0 active)  in 0.093 seconds - new frequency is -100
+Cbc0001I Search completed - best objective 10751186876.66594, took 306 iterations and 0 nodes (1.64 seconds)
+Cbc0035I Maximum depth 0, 0 variables fixed on reduced cost
+Cuts at root node changed objective from 1.07509e+10 to 1.07512e+10
+Probing was tried 11 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.684 seconds)
+Gomory was tried 11 times and created 466 cuts of which 0 were active after adding rounds of cuts (0.152 seconds)
+Knapsack was tried 11 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.006 seconds)
+Clique was tried 11 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.001 seconds)
+MixedIntegerRounding2 was tried 11 times and created 176 cuts of which 0 were active after adding rounds of cuts (0.048 seconds)
+FlowCover was tried 11 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.033 seconds)
+TwoMirCuts was tried 11 times and created 225 cuts of which 0 were active after adding rounds of cuts (0.093 seconds)
+ZeroHalf was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.004 seconds)
+
+Result - Optimal solution found
+
+Objective value:                10751186876.66593552
+Enumerated nodes:               0
+Total iterations:               306
+Time (CPU seconds):             1.64
+Time (Wallclock seconds):       1.68
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       1.69   (Wallclock seconds):       1.75
+
+MODEL DETAILS HERE:
+Optimal
+Total Cost: 10751186876.66608
+total variables: 20000 not assigned variables: 19701 assigned variables: 299 mean 0
+

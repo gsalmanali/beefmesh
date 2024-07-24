@@ -1,0 +1,69 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+volumes:
+  peer0.rancher.beefsupply.com:
+
+networks:
+  supply:
+    name: beef_supply
+ 
+services:
+
+  peer0.rancher.beefsupply.com:
+    container_name: peer0.rancher.beefsupply.com
+    image: hyperledger/fabric-peer:latest
+    labels:
+      service: hyperledger-fabric
+    environment:
+      #Generic peer variables
+      - FABRIC_CFG_PATH=/etc/hyperledger/peercfg
+      - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
+      # the following setting starts chaincode containers on the same
+      # bridge network as the peers
+      # https://docs.docker.com/compose/networking/
+      #- CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=beef_supply
+      - FABRIC_LOGGING_SPEC=INFO
+      #- FABRIC_LOGGING_SPEC=DEBUG
+      - CORE_PEER_TLS_ENABLED=true
+      - CORE_PEER_PROFILE_ENABLED=true
+      - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+      # Peer specific variabes
+      - CORE_PEER_ID=peer0.rancher.beefsupply.com
+      #- CORE_PEER_ADDRESS=peer0.rancher.beefsupply.com:11051
+      - CORE_PEER_ADDRESS=peer0.rancher.beefsupply.com:11051
+      - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/msp
+      - CORE_PEER_LISTENADDRESS=0.0.0.0:11051
+      - CORE_PEER_CHAINCODEADDRESS=peer0.rancher.beefsupply.com:11052
+      - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.rancher.beefsupply.com:11051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.rancher.beefsupply.com:11051
+      - CORE_PEER_LOCALMSPID=RancherMSP
+      #- CORE_OPERATIONS_LISTENADDRESS=peer0.rancher.beefsupply.com:9463
+      - CORE_METRICS_PROVIDER=prometheus    
+      - CHAINCODE_AS_A_SERVICE_BUILDER_CONFIG={"peername":"peer0rancher"}
+      - CORE_CHAINCODE_EXECUTETIMEOUT=300s   
+    volumes:
+        - /var/run/docker.sock:/host/var/run/docker.sock
+        #- ../../../organizations/peerOrganizations/rancher.beefsupply.com/peers/peer0.rancher.beefsupply.com/msp:/etc/hyperledger/fabric/msp
+        #- ../../../organizations/peerOrganizations/rancher.beefsupply.com/peers/peer0.rancher.beefsupply.com/tls:/etc/hyperledger/fabric/tls
+        - ../../../organizations/peerOrganizations/rancher.beefsupply.com/peers/peer0.rancher.beefsupply.com:/etc/hyperledger/fabric     
+        - peer0.rancher.beefsupply.com:/var/hyperledger/production
+        - ./peercfg:/etc/hyperledger/peercfg
+    #working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+    command: peer node start
+    ports:
+      - 11051:11051
+      - 11052:11052
+     #- 9463:9463
+    networks:
+      - supply
+
+  

@@ -1,0 +1,29 @@
+version: '2'
+
+
+networks:
+  utsa-server:
+    name: beef_supply
+    driver: bridge
+
+services:
+   uts-server:
+     image: nicholasamorim/uts-server
+     container_name: beef.utsa.com
+     environment:
+       run_as_user: uts-server      
+     ports:
+       - 2020:2020
+     volumes:
+        #- ./scripts/:/etc/scripts
+        #- ./cfg/:/opt/uts-server/cfg 
+       - ./cfg/:/etc/uts-server
+       - ./pki/:/etc/uts-server/pki
+       - ./pki/:/opt/uts-server/tests/cfg/pki/
+     #command: uts-server -c /etc/uts-server/tests/cfg/uts-server.cnf -D
+     #command: uts-server -c /etc/uts-server/uts-server.cnf 
+     #entrypoint: ./docker-entrypoint.sh
+     networks:
+       utsa-server:
+        
+ 

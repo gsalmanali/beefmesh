@@ -1,0 +1,60 @@
+# Copyright Matt Todd
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#   http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+#
+# Modifications Notice:
+# Date: 01-01-2023
+# Modified by: Salman Ali
+#
+
+
+version: '3'
+
+#secrets:
+ # regulator_name
+   # file ./regulator_name.txt
+  # regulator_pass
+   # file ./regulator_pass.txt  
+
+#volumes:
+ # swarm.ipfs.com:
+
+networks:
+  privateipfs:
+    name: beefchain_ipfs
+  
+services:
+  ipfs-swarm-key-gen:
+    #image: ipfs/go-ipfs
+    labels: 
+      service: ipfs-swarm-key-gen
+    hostname: ipfs-swarm-key-gen
+    container_name: ipfs-swarm-key-gen
+    build: '.'
+    networks:
+      - privateipfs
+    #command: ["ipfs", "swarm", "key", "gen", "--write", "/tmp/swarm.key"]
+    ports:
+      - 7069:7069
+    volumes:
+      - ./swarm-data:/tmp/
+    # secrets
+    #  file ./regulator_name.txt
+    #  file ./regulator_pass.txt   
+   # environment 
+   #   - IPFS_USER_FILE=/run/secrets/regulator_name
+    #  - IPFS_PASSWORD_FILE=/run/secrets/regulator_pass
+
+

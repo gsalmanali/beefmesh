@@ -1,0 +1,111 @@
+version: '3.5'
+
+networks:
+  farmer:
+    name: farmer
+    driver: bridge
+
+#secrets:
+ # postgre-admin-password
+ #   file ./secrets/PGADMIN_DEFAULT_PASSWORD
+ # postgre-db-password
+ #   file ./secrets/POSTGRES_PASSWORD_PASSWORD
+ # user
+    #file user.txt
+  #pass
+    #file pass.txt
+  #db 
+    #file db.txt
+
+volumes:
+    farmerpostgres:
+    padmin_farmer:
+
+
+services:
+  farmerpostgres:
+    container_name: farmerpostgres
+    hostname: farmerpostgres
+    image: postgres
+    #deploy
+      #replicas 1
+      #resources
+        #limits
+          #memory 1G 
+      #restart_policy
+        #condition on-failure
+        #delay 5s
+        #max_attempts 3
+        #window 120s    
+    environment:
+      POSTGRES_DB: farmermdb
+      POSTGRES_USER: farmermdb
+      POSTGRES_PASSWORD: farmermdb
+      PGDATA: /data/farmerpostgres
+      #POSTGRES_URL="postgres://${POSTGRES_USR}:${POSTGRES_PWD}@postgres:5432/${POSTGRES_DB}?sslmode=disable"
+      #POSTGRES_USER_FILE /run/secrets/user
+      #POSTGRES_PASSWORD_FILE /run/secrets/pass
+      #POSTGRES_DB_FILE /run/secrets/db
+    healthcheck:
+      test: "pg_isready -h localhost -p 5432 -q -U farmermdb"
+   #test ["CMD", "curl", "-f", "http://localhost:5431"]   
+   #test: ["CMD-SHELL", "pg_isready -p 5432"]
+      interval: 30s
+      timeout: 10s
+      retries: 5      
+      start_period: 10s
+    #env_file
+     # - postgreserver.env
+     # - postgrepassword.env
+    #secrets
+      #- postgre-admin-password
+      #- postgre-db-password
+    volumes:
+       #- ./conf/postgres.conf:/usr/local/etc/postgres/postgres.conf
+       - ./init/initData.sql:/docker-entrypoint-initdb.d/initData.sql
+       - ./init/init-data.sh:/docker-entrypoint/init.sh
+       - farmerpostgres:/data/farmerpostgres
+       - ./farmerpostgres_data:/usr/local/etc/data
+      #- ../organizations/farmer:/usr/local/etc/data/farmer
+     # - ./log:/var/opt/postgres/log
+     # - ./secrets:/var/opt/postgres/secrets
+    ports:
+      - "5431:5432"
+    # - "${DOCKER_POSTGRES_PORT:-5431}:5432"
+    #command: "postgres -c config_file=/usr/local/etc/postgres/postgres.conf"
+    networks:
+      - farmer
+    restart: unless-stopped
+    #secrets
+      #- user
+      #- pass
+      #- db
+
+  
+  padmin_farmer:
+    container_name: padmin_farmer
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: farmermdb@beefchain.com
+      PGADMIN_DEFAULT_PASSWORD: farmermdb
+      #PGADMIN_CONFIG_SERVER_MODE: 'False'
+      #PGADMIN_LISTEN_PORT: 80
+      #PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+    volumes:
+       - padmin_farmer:/var/lib/padmin_farmer
+       #- ./docker_pgadmin_servers.json:/pgadmin4/servers.json
+    ports:
+      - "8887:80"
+    depends_on:
+      - farmerpostgres
+    networks:
+      - farmer
+    #entrypoint
+      #- "/bin/sh"
+      #- "-c"
+      #- "/bin/echo 'postgres:5431:*:postgres:password' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
+    restart: unless-stopped 
+    links:
+      - farmerpostgres
+
+ 

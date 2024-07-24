@@ -1,0 +1,60 @@
+version: '3.4'
+
+
+networks:
+  privateipfs:
+    name: beefchain_ipfs
+
+services:
+
+  manager.ipfs.node:
+    container_name: manager.ipfs.node
+    image: ipfs/kubo:release
+#   ports:
+#     - "4001:4001" # ipfs swarm - expose if needed/wanted
+#     - "5001:5001" # ipfs api - expose if needed/wanted
+#     - "8080:8080" # ipfs gateway - expose if needed/wanted
+    ports:
+      - 16001:16001
+      - 17001:17001
+      - 14080:14080
+      - 14081:14081
+    environment:
+      - IPFS_HOST=manager.ipfs.com
+    volumes:
+      #- ./compose/ipfs0:/data/ipfs
+      - ./cluster/manager-node:/data/ipfs
+    networks:
+      - privateipfs
+
+  manager.ipfs.cluster:
+    container_name: manager.ipfs.cluster
+    image: ipfs/ipfs-cluster:latest
+    depends_on:
+      - manager.ipfs.node
+    environment:
+      CLUSTER_PEERNAME: manager.ipfs.cluster
+      CLUSTER_SECRET: ${CLUSTER_SECRET} # From shell variable if set
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/manager.ipfs.node/tcp/17001
+      CLUSTER_CRDT_TRUSTEDPEERS: '*' # Trust all peers in Cluster
+      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
+      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
+    ports:
+          # Open API port (allows ipfs-cluster-ctl usage on host)
+          #- "127.0.0.1:9094:9094"
+      - "9094:9094" # http api
+      - "9095:9095" # proxy api
+      - "9096:9096" # cluster swarm, other peers connect via this port
+          # The cluster swarm port would need  to be exposed if this container
+          # was to connect to cluster peers on other hosts.
+          # But this is just a testing cluster.
+          # - "9095:9095" # Cluster IPFS Proxy endpoint
+          # - "9096:9096" # Cluster swarm endpoint
+    volumes:
+      - ./cluster/manager-cluster:/data/ipfs-cluster
+    networks:
+      - privateipfs
+
+
+
+

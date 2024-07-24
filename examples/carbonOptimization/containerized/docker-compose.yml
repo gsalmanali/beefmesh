@@ -1,0 +1,32 @@
+# Author  : 
+
+version: "3.8"
+
+
+networks:
+  carbon_minimize:
+    name: carbon_minimize
+    driver: bridge
+
+services:
+  # A user-defined name for this container
+  carbonminimize-app:
+    container_name: carbonminimize-app
+    hostname: carbon_user
+    # Indicates that `Dockerfile` should be used for local instantiations
+    build:
+        context: .
+        dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "8020:8020"
+    # Mounts the local directory to docker container as a volume.
+    volumes:
+      - ./app:/app
+      #- ../organizations/farmer:/app/farmer
+    networks:
+      - carbon_minimize  
+
+
+  

@@ -1,0 +1,18 @@
+site_name: BeefMesh 1.0
+site_url: https://example.com/
+nav:
+  - Home: index.md   
+  - Layout: layout.md 
+  - Sessions: sessions.md 
+  - Emissions: emissions.md 
+  - UTSA Server: utsa.md 
+  - Databases: databases.md
+  - IPFS Network: ipfs.md
+  - IoT Network: iots.md
+  - Overlay Network: overlay.md
+  - Network Shared Drive: shareddrive.md
+  - Blockchain Network: blockchain.md
+  - Utilities and Monitoring: utilities.md
+  - Examples and Applications: examples.md
+  - Debugging Issues: debugging.md
+theme: readthedocs

@@ -1,0 +1,36 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '3.7'
+
+networks:
+  supply:
+    name: beef_supply
+    #driver: overlay
+  
+
+services:
+
+  ca_saraorderer:
+    image: hyperledger/fabric-ca:latest
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca-${customOrg}
+      - FABRIC_CA_SERVER_TLS_ENABLED=true
+      - FABRIC_CA_SERVER_PORT=${CUSTOM_CA_SERVER_PORT}
+      - FABRIC_CA_SERVER_OPERATIONS_LISTENADDRESS=0.0.0.0:${CUSTOM_CA_SERVER_OPERATIONS_LISTENADDRESS_PORT}
+    ports:
+      #- "12054:12054"
+      #- "21054:21054"
+      - "${CUSTOM_CA_SERVER_PORT}:${CUSTOM_CA_SERVER_PORT}"
+      - "${CUSTOM_CA_SERVER_OPERATIONS_LISTENADDRESS_PORT}:${CUSTOM_CA_SERVER_OPERATIONS_LISTENADDRESS_PORT}"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      #- ../fabric-ca/rancher:/etc/hyperledger/fabric-ca-server
+      - ../../../organizations/fabric-ca/${customOrg}:/etc/hyperledger/fabric-ca-server
+      #- ../fabric-ca/org3:/etc/hyperledger/fabric-ca-server
+    container_name: ca_${customOrg}
+    networks:
+      - supply

@@ -1,0 +1,13 @@
+HTTP/2 201 
+server: nginx/1.20.0
+date: Thu, 25 Apr 2024 16:35:08 GMT
+content-type: application/json
+content-length: 284
+strict-transport-security: max-age=63072000; includeSubdomains
+x-frame-options: DENY
+x-content-type-options: nosniff
+access-control-allow-origin: *
+access-control-allow-methods: *
+access-control-allow-headers: *
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQwOTg5MDgsImlhdCI6MTcxNDA2MjkwOCwiaXNzIjoibWFpbmZsdXguYXV0aCIsInN1YiI6ImZhcm1lckBlbWFpbC5jb20iLCJpc3N1ZXJfaWQiOiI1ZGEzODNmZC1hZDU5LTQ0MDMtYmQ1OC1kNzk1ZDU3ZjQ1ZGYiLCJ0eXBlIjowfQ.bi2PleRZopJqd1v1wC0P_vCFXoo_2Qgv0bhGOAonf38"}
