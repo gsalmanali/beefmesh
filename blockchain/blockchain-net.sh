@@ -352,7 +352,7 @@ function blockchainup(){
 
 function createchannel(){
 
-	if [ "$#" -ne 1 ]; then
+	if [ "$#" -ne 0 ]; then
 	        #provided_parameter=$1 
 	        provided_channel=$1
 	        echo "creating a channel with name: $1"
